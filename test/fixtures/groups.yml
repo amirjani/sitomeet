@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  is_muted: false
+  image: MyString
+  is_private: false
+  is_verified: false
+  description: MyText
+
+two:
+  is_muted: false
+  image: MyString
+  is_private: false
+  is_verified: false
+  description: MyText

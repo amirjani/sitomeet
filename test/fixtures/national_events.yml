@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-08-10
+  title: MyString
+  description: MyString
+  is_day_off: false
+
+two:
+  date: 2018-08-10
+  title: MyString
+  description: MyString
+  is_day_off: false
