@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_26_061856) do
+ActiveRecord::Schema.define(version: 2018_08_26_094214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(version: 2018_08_26_061856) do
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_event_groups_on_event_id"
     t.index ["group_id"], name: "index_event_groups_on_group_id"
+  end
+
+  create_table "event_share_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "event_id", null: false
+    t.uuid "share_event_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_event_share_events_on_event_id"
+    t.index ["share_event_id"], name: "index_event_share_events_on_share_event_id"
   end
 
   create_table "event_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -201,6 +210,8 @@ ActiveRecord::Schema.define(version: 2018_08_26_061856) do
 
   add_foreign_key "event_groups", "events", on_update: :cascade, on_delete: :cascade
   add_foreign_key "event_groups", "groups", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "event_share_events", "events", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "event_share_events", "share_events", on_update: :cascade, on_delete: :cascade
   add_foreign_key "event_types", "events", on_update: :cascade, on_delete: :cascade
   add_foreign_key "event_types", "types", on_update: :cascade, on_delete: :cascade
   add_foreign_key "event_users", "events", column: "events_id", on_update: :cascade, on_delete: :cascade

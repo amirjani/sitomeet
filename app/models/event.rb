@@ -23,4 +23,8 @@ class Event < ApplicationRecord
   has_many :types , :through => "event_types" , :foreign_key => "type_id"
   has_many :event_types
 
+  # event and share event
+  has_many :share_events , :through => "event_share_events" , :foreign_key => "share_event_id"
+  has_many :event_share_events
+
 end
