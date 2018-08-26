@@ -34,9 +34,13 @@ Rails.application.routes.draw do
     put     "national_event/update/:id"     , to: "national_event#update"
     delete  "national_event/delete/:id"     , to: "national_event#delete"
 
-    # user types and colors
+    # user types
+    get     "user/type"                     , to: "type_for_user#getUserTypes"
+    get     "user/type/find"                , to: "type_for_user#find"
     post    "user/type/create"              , to: "type_for_user#create"
     put     "user/type/:id"                 , to: "type_for_user#update"
+    delete  "user/type/delete/:id"          , to: "type_for_user#delete"
+
 
 
   end
