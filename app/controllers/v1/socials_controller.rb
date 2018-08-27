@@ -17,8 +17,8 @@ class V1::SocialsController < ApplicationController
   # ================== create socials
   def create
     # is user verified ?
-    if not @current_user.verified
-      render json: { message: "user is not verified" } , status: 400
+    unless @current_user.verified
+      render json: {message: "user is not verified"}, status: 400
       return
     end
     # parameters are sent ?
@@ -30,10 +30,8 @@ class V1::SocialsController < ApplicationController
     socials = @current_user.socials.build(socialParams)
     if socials.save
       render json: { message: socials } , status: :ok
-      return
     else
       render json: { message: "there's a problem with saving social media!" } , status: 400
-      return
     end
   end
 
@@ -68,8 +66,8 @@ class V1::SocialsController < ApplicationController
   # ================ delete a social
   def delete
 
-    if not params[:id]
-      render json: { message: "id is not sent !" } , status: 400
+    unless params[:id]
+      render json: {message: "id is not sent !"}, status: 400
       return
     end
 

@@ -4,7 +4,7 @@ class CreateOffDays < ActiveRecord::Migration[5.2]
 
       t.references :user, type: :uuid, null: false, index: true ,foreign_key: { on_delete: :cascade , on_update: :cascade }
       t.date :date , null:false
-      t.date :description , null: true
+      t.string :description , null: true
 
       t.timestamps
     end

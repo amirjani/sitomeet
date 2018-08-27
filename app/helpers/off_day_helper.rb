@@ -1,0 +1,2 @@
+module OffDayHelper
+end

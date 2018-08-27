@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 2018_08_26_111807) do
   create_table "off_days", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.date "date", null: false
-    t.date "description"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_off_days_on_user_id"
