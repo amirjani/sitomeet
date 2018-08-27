@@ -7,5 +7,4 @@ class OffDay < ApplicationRecord
   # user and off day
   has_many :users , :dependent => :destroy
 
-
 end

@@ -41,8 +41,18 @@ Rails.application.routes.draw do
     put     "user/type/:id"                 , to: "type_for_user#update"
     delete  "user/type/delete/:id"          , to: "type_for_user#delete"
 
-    # ============== user event
-    post    "user/event/create"              , to: "event#create"
+    # =============== user off days
+    # post    "user/off_day/create"           , to: ""
+
+
+
+
+
+
+
+
+    # # ============== user event
+    # post    "user/event/create"              , to: "event#create"
 
 
 
