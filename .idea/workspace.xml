@@ -100,13 +100,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Gemfile" value="3" />
-          <entry key="rb" value="1777" />
+          <entry key="rb" value="2851" />
           <entry key="yml" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ruby" value="1780" />
+          <entry key="Ruby" value="2854" />
           <entry key="YAML" value="121" />
         </counts>
       </usages-collector>
@@ -120,35 +120,19 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/v1/user_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
-              <caret line="123" selection-start-line="123" selection-end-line="123" />
+            <state relative-caret-position="617">
+              <caret line="232" column="4" lean-forward="true" selection-start-line="232" selection-start-column="4" selection-end-line="232" selection-end-column="4" />
               <folding>
                 <element signature="e#550#1921#0" />
                 <element signature="e#1969#2987#0" />
                 <element signature="e#3058#3678#0" />
-                <element signature="e#3695#4414#0" />
-                <element signature="e#4515#4697#0" />
-                <element signature="e#4801#5900#0" />
+                <element signature="e#3767#4568#0" />
+                <element signature="e#4617#4799#0" />
+                <element signature="e#4847#5737#0" />
                 <element signature="e#5995#6618#0" />
-                <element signature="e#6706#6918#0" />
               </folding>
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/uploads/user_profile_picture/user/photo/fdc8f7ef-8ddd-4cb6-8ca2-a148699662d9/amir.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/uploads/user_profile_picture/user/photo/fdc8f7ef-8ddd-4cb6-8ca2-a148699662d9/group_picture_amir.jpg">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/uploads/user_profile_picture/user/photo/fdc8f7ef-8ddd-4cb6-8ca2-a148699662d9/profile_picture_amir.jpg">
-          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -192,6 +176,7 @@
       <find>mini_ma</find>
       <find>mini_magick</find>
       <find>verification_code</find>
+      <find>authori</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/db/migrate</dir>
@@ -295,6 +280,12 @@
               <item name="seetomeet" type="b2602c69:ProjectViewProjectNode" />
               <item name="seetomeet" type="462c0819:PsiDirectoryNode" />
               <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seetomeet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="seetomeet" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="uploads" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="seetomeet" type="b2602c69:ProjectViewProjectNode" />
@@ -469,12 +460,12 @@
       <workItem from="1535173717715" duration="14112000" />
       <workItem from="1535259744581" duration="18474000" />
       <workItem from="1535346098454" duration="10191000" />
-      <workItem from="1535778273017" duration="6522000" />
+      <workItem from="1535778273017" duration="8410000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156473000" />
+    <option name="totallyTimeSpent" value="158361000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -853,17 +844,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/user_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="123" selection-start-line="123" selection-end-line="123" />
+        <state relative-caret-position="617">
+          <caret line="232" column="4" lean-forward="true" selection-start-line="232" selection-start-column="4" selection-end-line="232" selection-end-column="4" />
           <folding>
             <element signature="e#550#1921#0" />
             <element signature="e#1969#2987#0" />
             <element signature="e#3058#3678#0" />
-            <element signature="e#3695#4414#0" />
-            <element signature="e#4515#4697#0" />
-            <element signature="e#4801#5900#0" />
+            <element signature="e#3767#4568#0" />
+            <element signature="e#4617#4799#0" />
+            <element signature="e#4847#5737#0" />
             <element signature="e#5995#6618#0" />
-            <element signature="e#6706#6918#0" />
           </folding>
         </state>
       </provider>

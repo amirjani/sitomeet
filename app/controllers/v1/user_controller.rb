@@ -17,19 +17,19 @@ class V1::UserController < ApplicationController
     # check if the password and password confirmation is same
     if params[:password] != params[:password_confirmation]
       # 409 status code is for conflict
-      render json: { message: " رمز عبور ها همخوانی ندارند " } , status: 409
+      render json: { error: " رمز عبور ها همخوانی ندارند " } , status: 409
       return
     end
 
     # check user is subscribed or not
     if User.find_by(phone_number: params[:phone_number])
-      render json: { message: "اطلاعات شما در حال حاضر در سامانه سیت و میت حضور دارد " } , status: 422
+      render json: { conflict: "اطلاعات شما در حال حاضر در سامانه سیت و میت حضور دارد " } , status: 422
       return
     end
 
     # check the fields is filled or not
     if not params[:name] or not params[:phone_number] or not params[ :sex ] or not params[:password] or not params[:birthday]
-      render json: { message: " اطلاعات را به صورت کامل وارد کنید " } , status: 400
+      render json: { error: " اطلاعات را به صورت کامل وارد کنید " } , status: 400
       return
     end
 
@@ -49,9 +49,9 @@ class V1::UserController < ApplicationController
 
       send_sms(user.phone_number , text)
 
-      render json: { message: " کاربر با موفقیت ساخته شد " } , status: :created
+      render json: { success: " کاربر با موفقیت ساخته شد " } , status: :created
     else
-      render json: user.errors, status: :unprocessable_entity
+      render json: { error:user.errors }, status: :unprocessable_entity
     end
   end
 
@@ -60,7 +60,7 @@ class V1::UserController < ApplicationController
 
     # code is not sent
     unless params[:code]
-      render json: { message: " اطلاعات را به صورت کامل بفرستید " } , status:400
+      render json: { error: " اطلاعات را به صورت کامل بفرستید " } , status:400
       return
     end
 
@@ -72,23 +72,23 @@ class V1::UserController < ApplicationController
       if user and not user.verified
 
         if Time.now > user.verification_code_sent_at + 10.minute
-          render json: { message: " کد ارسالی شما باطل شده است " } , status: 403
+          render json: { error: " کد ارسالی شما باطل شده است " } , status: 403
 
         else
           user.verified = true
 
           if user.save
-            render json: { message: " کاربر تایید شد " } , status: 200
+            render json: { success: " کاربر تایید شد " } , status: 200
 
           else
-            render json: { message: user.errors.full_messages } , status: 400
+            render json: { error: user.errors.full_messages } , status: 400
           end
         end
 
       elsif user&.verified
-        render json: { message: " شما در حال حاضر تایید شده هستید " } , status: 200
+        render json: { error: " شما در حال حاضر تایید شده هستید " } , status: 200
       else
-        render json: { message: " کد را اشتباه وارد کردید " } , status: 400
+        render json: { error: " کد را اشتباه وارد کردید " } , status: 400
       end
     end
   end
@@ -100,7 +100,7 @@ class V1::UserController < ApplicationController
     code = rand(1000..9999)
 
     unless user
-      render json: { message: " کاربر با شماره تلفن مورد نظر وجود ندارد " } , status: 404
+      render json: { error: " کاربر با شماره تلفن مورد نظر وجود ندارد " } , status: 404
       return
     end
 
@@ -112,99 +112,98 @@ class V1::UserController < ApplicationController
 
       send_sms(user.phone_number , text)
 
-      render json: { message: " کد فرستاده شد " } , status: 200
+      render json: { success: " کد فرستاده شد " } , status: 200
 
     else
-      render json: { message: user.errors.full_messages } , status: :unprocessable_entity
+      render json: { error: user.errors.full_messages } , status: :unprocessable_entity
     end
 
   end
 
   # ======================= reset password
   def resetPassword
+
     user = User.where(phone_number: params[:phone_number]).first
+
     if user
       if user.update(forget_password: true)
+
         code = rand(1000..9999)
-        text = " رمز شما #{code} است "
+
+        text = "#{ user.name } عزیز\nکد عبور شما #{ code } است\nلطفا پس از ورود مجدد ، رمز خود را تغییر دهید\nسامانه سیت و میت"
         user.password_digest = BCrypt::Password.create(code)
         if user.save
           send_sms(user.phone_number , text)
-          render json: { message: "message sent and password has been successfully changed" } , status: 200
+          render json: { success: " پیام ارسال شد و کد عبور شما تغییر یافت " } , status: 200
         else
-          render json: { message: "password not sent" } , status: 410
+          render json: { error: " پیام ارسال نشد ، به واحد پشتیبانی خبر دهید. " } , status: 410
         end
       else
-        render json: { message: "password can't changed" } , status: 403
+        render json: { error: user.errors } , status: 403
       end
     else
-      render json: { message: "user not found" } , status: 404
+      render json: { error: "کاربر پیدا نشد" } , status: 404
     end
   end
 
   # ======================= get user profile
   def profile
     if @current_user
-      render json: { message: @current_user } , status: 200
+      render json: { success: @current_user } , status: 200
     else
-      render json: { message: "invalid user token" } , status: 200
+      render json: { error: " توکن شما یافت نشد! " } , status: 200
     end
   end
 
-  # ======================= updating pasword
+  # ======================= updating password
   def updatePassword
+
+
+    if not params[:oldPassword] or not params[:newPassword] or not params[:newPasswordConfirmation]
+      render json: { message: " رمز عبور گذشته خود را وارد کنید " } , status: 422
+      return
+    end
+
     user = @current_user
 
-    if not params[:oldPassword]
-      render json: { message: "oldPassword is not passed" } , status: 422
-      return
-    elsif not params[:newPassword]
-      render json: { message: "newPassword is not passed" } , status: 422
-      return
-    elsif not params[:newPasswordConfirmation]
-      render json: { message: "newPasswordConfirmation is not passed" } , status: 422
+
+    unless user.authenticate(params[:oldPassword])
+      render json: { error: " رمز عبور گذشته به درستی وارد نشده است " } , status: 400
       return
     end
 
-    oldPassword = params[:oldPassword]
-    newPassword = params[:newPassword]
-
-    unless user.authenticate(oldPassword)
-      render json: { message: "old password is incorrect" } , status: 400
-      return
-    end
-
-    unless newPassword == params[:newPasswordConfirmation]
-      render json: { message: "password doesn't match" } , status: 400
+    unless params[:newPassword] == params[:newPasswordConfirmation]
+      render json: { error: " رمز عبور ها همخوانی ندارند " } , status: 400
     end
 
     user.password = params[:newPassword]
-    if user.forget_password == true
+    if user.forget_password
       user.forget_password = false
     end
+
     if user.save
-      render json: { message: "password successfully changed !" } , status: 400
+      render json: { success: " رمز عبور با موفقیت تغییر یافت " } , status: 400
     else
-      render json: user.errors , status: :unprocessable_entity
+      render json: { error: user.errors } , status: :unprocessable_entity
     end
   end
 
 
   # ======================= update profile
   def updateProfile
-    currentPhoneNumber = @current_user.phone_number
+    lastPhoneNumber = @current_user.phone_number
     if @current_user.update(updateParams)
-    unless currentPhoneNumber == @current_user.phone_number
-      current_user.update(verified: false)
-      code = rand(1000..9999)
-      current_user.verification_code = code
-      current_user.verification_code_sent_at = Time.now
-      text = "کد ورود مجدد شما #{code} می باشد"
-      send_sms(@current_user.phone_number,text)
-      render json: { message: "phone number is changed and confirmation sent" } , status: :ok
-      return
-    end
-    render json: { message: "updated" } , status: :ok
+      unless lastPhoneNumber == @current_user.phone_number
+        current_user.update(verified: false)
+        code = rand(1000..9999)
+        current_user.verification_code = code
+        current_user.verification_code_sent_at = Time.now
+        text = " #{ user.name } عزیز \nکد ورود مجدد شما به سامانه سیت و میت #{ user.verification_code } است \nسامانه سیت و میت "
+        send_sms(@current_user.phone_number,text)
+        render json: { success: " شماره تماس تغییر یافت و کد تایید مجدد فرستاده شد " } , status: :ok
+        return
+      end
+    render json: { success: " به روز راستی شد " } , status: :ok
     end
   end
 
@@ -217,18 +216,21 @@ class V1::UserController < ApplicationController
   # ======================= private for this controller
   private
 
+  # ======================= register parameters
   def register_params
     params.permit( :name , :phone_number , :password , :sex , :birthday)
   end
 
+  # ======================= update parameters
   def updateParams
     params.permit(:name , :phone_number , :sex , :birthday , :bio , :username , :email , :location , :is_private , :photo)
   end
 
+  # ======================= send sms
   def send_sms(to,text)
     url = "http://www.0098sms.com/sendsmslink.aspx?FROM=30005883333335&TO=#{to}&TEXT=#{text}&USERNAME=xsms6874&PASSWORD=33947786&DOMAIN=0098"
     url = URI.encode(url)
-    body = RestClient.get(url)
+    RestClient.get(url)
   end
 
 end
