@@ -45,24 +45,24 @@ ActiveRecord::Schema.define(version: 2018_08_26_111807) do
   end
 
   create_table "event_users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "users_id", null: false
-    t.uuid "events_id", null: false
+    t.uuid "user_id", null: false
+    t.uuid "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["events_id"], name: "index_event_users_on_events_id"
-    t.index ["users_id"], name: "index_event_users_on_users_id"
+    t.index ["event_id"], name: "index_event_users_on_event_id"
+    t.index ["user_id"], name: "index_event_users_on_user_id"
   end
 
   create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.boolean "is_private"
-    t.string "title"
+    t.boolean "is_private", default: true
+    t.string "title", null: false
     t.string "description"
-    t.date "start_time"
-    t.date "end_time"
-    t.date "notification_time"
+    t.datetime "start_time", null: false
+    t.datetime "end_time", null: false
+    t.datetime "notification_time"
     t.integer "when_to_repeat"
     t.boolean "is_verified"
-    t.boolean "is_with"
+    t.boolean "is_with", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -223,8 +223,8 @@ ActiveRecord::Schema.define(version: 2018_08_26_111807) do
   add_foreign_key "event_share_events", "share_events", on_update: :cascade, on_delete: :cascade
   add_foreign_key "event_types", "events", on_update: :cascade, on_delete: :cascade
   add_foreign_key "event_types", "types", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "event_users", "events", column: "events_id", on_update: :cascade, on_delete: :cascade
-  add_foreign_key "event_users", "users", column: "users_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "event_users", "events", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "event_users", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "group_types", "groups", on_update: :cascade, on_delete: :cascade
   add_foreign_key "group_types", "types", on_update: :cascade, on_delete: :cascade
   add_foreign_key "group_users", "groups", on_update: :cascade, on_delete: :cascade

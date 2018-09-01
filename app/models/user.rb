@@ -31,7 +31,7 @@ class User < ApplicationRecord
   has_many :user_types
 
   # user and events
-  has_many :events , :through => "event_users" , :foreign_key => "event_id"
+  has_many :event , :through => "event_users" , :foreign_key => "events_id"
   has_many :event_users
 
   # surprise and user

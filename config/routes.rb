@@ -45,7 +45,7 @@ Rails.application.routes.draw do
     delete  "user/off_day/delete/:id"       , to: "off_day#delete"
 
     # ============== user event =================== #
-    # post    "user/event/create"              , to: "event#create"
+    post    "user/event/create"              , to: "event#create"
 
 
 
