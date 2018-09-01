@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e652f6bd-6600-40d7-8c21-2869ff59db0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/v1/socials_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/socials_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/v1/authentication_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/authentication_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/v1/national_event_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/national_event_controller.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -88,7 +88,7 @@
           <entry key="Gemfile" value="1" />
           <entry key="html" value="1" />
           <entry key="jpg" value="6" />
-          <entry key="rb" value="13" />
+          <entry key="rb" value="17" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
@@ -96,20 +96,20 @@
         <counts>
           <entry key="HTML" value="1" />
           <entry key="Image" value="6" />
-          <entry key="Ruby" value="14" />
+          <entry key="Ruby" value="18" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Gemfile" value="3" />
-          <entry key="rb" value="4004" />
+          <entry key="rb" value="4235" />
           <entry key="yml" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ruby" value="4007" />
+          <entry key="Ruby" value="4238" />
           <entry key="YAML" value="121" />
         </counts>
       </usages-collector>
@@ -121,36 +121,49 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/v1/user_controller.rb">
+        <entry file="file://$PROJECT_DIR$/app/controllers/v1/off_day_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-5588">
-              <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/controllers/v1/socials_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
-              <folding>
-                <element signature="e#225#440#0" />
-                <element signature="e#482#1365#0" />
-                <element signature="e#1110#1449#0" />
-                <element signature="e#1492#1876#0" />
-                <element signature="e#1917#2383#0" />
-                <element signature="e#2473#2529#0" />
-              </folding>
+            <state relative-caret-position="1456">
+              <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/v1/type_for_user_controller.rb">
+        <entry file="file://$PROJECT_DIR$/app/controllers/v1/authentication_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="20" selection-end-column="7" />
+            <state relative-caret-position="652">
+              <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/v1/event_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-102">
+              <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/v1/national_event_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="896">
+              <caret line="171" selection-start-line="171" selection-end-line="171" />
+              <folding>
+                <element signature="e#396#858#0" />
+                <element signature="e#922#1099#0" />
+                <element signature="e#1159#1674#0" />
+                <element signature="e#1655#2010#0" />
+                <element signature="e#2055#2226#0" />
+                <element signature="e#2286#2627#0" />
+                <element signature="e#2800#2893#0" />
+                <element signature="e#2955#4911#0" />
+                <element signature="e#4979#6148#0" />
+                <element signature="e#6221#6405#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -200,14 +213,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180811061807_create_types.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180811061817_event_group.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180811061819_type_user.rb" />
         <option value="$PROJECT_DIR$/app/models/user_type.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180811061821_type_share_event.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180825110908_create_user_types.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/v1/national_event_controller.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180826051635_create_event_groups.rb" />
         <option value="$PROJECT_DIR$/app/models/event_group.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180826053728_create_group_types.rb" />
@@ -251,6 +262,8 @@
         <option value="$PROJECT_DIR$/app/uploaders/user_image_uploader.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/user_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/socials_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/v1/authentication_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/v1/national_event_controller.rb" />
       </list>
     </option>
   </component>
@@ -479,12 +492,12 @@
       <workItem from="1535173717715" duration="14112000" />
       <workItem from="1535259744581" duration="18474000" />
       <workItem from="1535346098454" duration="10191000" />
-      <workItem from="1535778273017" duration="16470000" />
+      <workItem from="1535778273017" duration="17846000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="166421000" />
+    <option name="totallyTimeSpent" value="167797000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -497,7 +510,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49939686" visible="true" weight="0.2067239" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -555,13 +567,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/surprise_user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/type.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -649,20 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="182">
           <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/v1/national_event_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="84" column="55" lean-forward="true" selection-start-line="84" selection-start-column="55" selection-end-line="84" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/v1/off_day_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -763,13 +754,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/v1/event_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -845,9 +829,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/socials_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="40" column="37" lean-forward="true" selection-start-line="40" selection-start-column="37" selection-end-line="40" selection-end-column="37" />
+          <folding>
+            <element signature="e#225#440#0" />
+            <element signature="e#482#1365#0" />
+            <element signature="e#1110#1449#0" />
+            <element signature="e#1492#1876#0" />
+            <element signature="e#1917#2383#0" />
+            <element signature="e#2473#2529#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/user_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-5588">
+        <state relative-caret-position="-2137">
           <caret line="5" column="1" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
         </state>
       </provider>
@@ -859,17 +858,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/v1/socials_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/off_day_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="16" column="37" lean-forward="true" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="1456">
+          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/authentication_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="652">
+          <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/event_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/national_event_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="896">
+          <caret line="171" selection-start-line="171" selection-end-line="171" />
           <folding>
-            <element signature="e#225#440#0" />
-            <element signature="e#482#1365#0" />
-            <element signature="e#1110#1449#0" />
-            <element signature="e#1492#1876#0" />
-            <element signature="e#1917#2383#0" />
-            <element signature="e#2473#2529#0" />
+            <element signature="e#396#858#0" />
+            <element signature="e#922#1099#0" />
+            <element signature="e#1159#1674#0" />
+            <element signature="e#1655#2010#0" />
+            <element signature="e#2055#2226#0" />
+            <element signature="e#2286#2627#0" />
+            <element signature="e#2800#2893#0" />
+            <element signature="e#2955#4911#0" />
+            <element signature="e#4979#6148#0" />
+            <element signature="e#6221#6405#0" />
           </folding>
         </state>
       </provider>

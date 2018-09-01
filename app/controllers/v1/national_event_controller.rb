@@ -32,8 +32,6 @@ class V1::NationalEventController < ApplicationController
 
      events = NationalEvent.order( "updated_at DESC" ).all
      render json: { message: events } , status: 302
-     return
-
   end
 
   # ============================= user saved national event
@@ -46,17 +44,15 @@ class V1::NationalEventController < ApplicationController
   def create
     # parameters are sent ?
     if not params[:date] or not params[:title] or not params[:is_day_off]
-      render json:{ message: "send parameters completely!" } , status: 402
+      render json:{ message: "پارامتر ها را به صورت کامل ارسال کنید" } , status: 402
       return
     end
     # save national event
     event = @current_user.national_event.build(nationalEventParams)
     if event.save
       render json: { message: event } , status: :ok
-      return
     else
-      render json: { message: "there's a problem with saving national event!" } , status: 400
-      return
+      render json: { message: event.errors } , status: 400
     end
   end
 
@@ -67,10 +63,10 @@ class V1::NationalEventController < ApplicationController
       if event.update(nationalEventParams)
         render json: { message: event } , status: 200
       else
-        render json: { message: "there's a problem" } , status: 400
+        render json: { message: event.errors } , status: 400
       end
     else
-      render json: { message: "event not found ! " } , status: 404
+      render json: { message: " رویداد عمومی یافت نشد " } , status: 404
     end
   end
 
@@ -96,6 +92,7 @@ class V1::NationalEventController < ApplicationController
 
   # ================================ PRIVATE TO THIS CONTROLLER ========================================
   private
+
   # ============================= parameters to sent
   def nationalEventParams
     params.permit( :date , :title , :description , :is_day_off)
@@ -137,7 +134,6 @@ class V1::NationalEventController < ApplicationController
       # date pass only
       events = NationalEvent.where( date: params[:date]).order( "updated_at DESC" ).all
       render json: { message: events } , status: 302
-      return
   end
 
   # ============================= define search with is day off
@@ -177,7 +173,6 @@ class V1::NationalEventController < ApplicationController
   def searchWithPagination
     events = NationalEvent.order( "updated_at DESC" ).page(params[:page]).per(params[:per])
     render json: { message: events } , status: 302
-    return
   end
 
 end

@@ -6,7 +6,7 @@ class V1::AuthenticationController < ApplicationController
 
     # find user and if not present return 404 status code
     unless user
-      render json: { message:" user not found " } , status: 404
+      render json: { message:" کاربر پیدا نشد " } , status: 404
       return
     end
 
@@ -17,17 +17,20 @@ class V1::AuthenticationController < ApplicationController
 
     # if token is correctly accessed
     if command.success?
-      if user.verified == false
-        render json: { message: "account is not verified" } , status: 401
+
+      unless user.verified
+        render json: {message: " پروفایل کاربری هنوز فعال نشده است. "}, status: 401
         return
       end
-      if user.status == true
+
+      if user.status
         render json: { token: command.result}
       end
-    elsif user.status == false
-      render json: { message: "access denied" } , status: 403
+
+    elsif !user.status
+      render json: { message: " شما به این بخش دسترسی ندارید " } , status: 403
     else
-      render json: { message: "wrong" } , status: 401
+      render json: { message: " اشتباه " } , status: 401
     end
   end
 end
