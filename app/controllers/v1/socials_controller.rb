@@ -16,22 +16,25 @@ class V1::SocialsController < ApplicationController
 
   # ================== create socials
   def create
+
     # is user verified ?
     unless @current_user.verified
-      render json: {message: "user is not verified"}, status: 400
+      render json: {error: " نام کاربری شما هنوز فعال نشده است "}, status: 400
       return
     end
+
     # parameters are sent ?
     if not params[:name] or not params[:link]
-      render json:{ message: "send parameters completely!" } , status: 404
+      render json:{ message: " پارامتر ها به صورت کامل پر کنید " } , status: 404
       return
     end
+
     # save social media
     socials = @current_user.socials.build(socialParams)
     if socials.save
-      render json: { message: socials } , status: :ok
+      render json: { socials: socials } , status: :ok
     else
-      render json: { message: "there's a problem with saving social media!" } , status: 400
+      render json: { error: socials.errors } , status: 400
     end
   end
 
@@ -40,12 +43,12 @@ class V1::SocialsController < ApplicationController
     social = @current_user.socials.where( id: params[:id]).last
     if social
       if social.update(socialParams)
-        render json: { message: social } , status: 202
+        render json: { success: social } , status: 202
       else
-        render json: { message: "unsuccessful" } , status: 400
+        render json: { error: social.errors } , status: 400
       end
     else
-      render json: { message: "social not found ! " } , status: 404
+      render json: { error: social.errors } , status: 404
     end
   end
 
@@ -54,12 +57,12 @@ class V1::SocialsController < ApplicationController
     socials = @current_user.socials
     if socials
       if socials.destroy_all
-        render json: { message: "social media completely deleted" } , status: 202
+        render json: { success: " تمامی شبکه های اجتماهی حذف شدند " } , status: 202
       else
-        render json: { message: "there's a problem deleting social" } , status: 400
+        render json: { error: socials.errors } , status: 400
       end
     else
-      render json: { message: "socials for this user not found" } , status: 404
+      render json: { error: " شبکه های اجتماعی کاربر مورد نظر یافت نشد " } , status: 404
     end
   end
 
@@ -67,7 +70,7 @@ class V1::SocialsController < ApplicationController
   def delete
 
     unless params[:id]
-      render json: {message: "id is not sent !"}, status: 400
+      render json: {message: " اطلاعات را به صورت کامل بفرستید "}, status: 400
       return
     end
 
@@ -75,12 +78,12 @@ class V1::SocialsController < ApplicationController
 
     if social
       if social.destroy
-        render json: { message: "successfully deleted" } , status: 200
+        render json: { message: " شبکه اجتماعی حذف شد " } , status: 200
       else
-        render json: { message: "can't delete" } , status: 400
+        render json: { message: social.errors } , status: 400
       end
     else
-      render json: { message: " social not found" } , status: 404
+      render json: { message: " شبکه اجتماعی مورد نظر یافت نشد " } , status: 404
     end
 
   end
