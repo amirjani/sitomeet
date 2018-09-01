@@ -60,28 +60,35 @@ class V1::UserController < ApplicationController
 
     # code is not sent
     unless params[:code]
-      render json: { message: "code parameter is missed" } , status:400
+      render json: { message: " اطلاعات را به صورت کامل بفرستید " } , status:400
       return
     end
 
     # code is sent and user found
     if params[:code]
+
       user = User.where(verification_code: params[:code]).where(phone_number: params[:phone_number]).first
+
       if user and not user.verified
-        if Time.now > user.verification_code_sent_at + 60.minute
-          render json: { message: "verification code has been expired , please request a new one" } , status: 403
+
+        if Time.now > user.verification_code_sent_at + 10.minute
+          render json: { message: " کد ارسالی شما باطل شده است " } , status: 403
+
         else
           user.verified = true
+
           if user.save
-            render json: { message: "successfully verified" } , status: 200
+            render json: { message: " کاربر تایید شد " } , status: 200
+
           else
             render json: { message: user.errors.full_messages } , status: 400
           end
         end
-    elsif user and user.verified
-      render json: { message: "already registered ! login" } , status: 200
-    else
-      render json: { message: "verification code is incorrect" } , status: 400
+
+      elsif user&.verified
+        render json: { message: " شما در حال حاضر تایید شده هستید " } , status: 200
+      else
+        render json: { message: " کد را اشتباه وارد کردید " } , status: 400
       end
     end
   end
@@ -89,22 +96,28 @@ class V1::UserController < ApplicationController
   # ======================= resend the code if time has been ended
   def resendCode
     user = User.where(phone_number: params[:phone_number]).first
+
     code = rand(1000..9999)
 
     unless user
-      render json: { message: "user not found" } , status: 404
+      render json: { message: " کاربر با شماره تلفن مورد نظر وجود ندارد " } , status: 404
       return
     end
 
     user.verification_code = code
     user.verification_code_sent_at = Time.now
+
     if user.save
-      text = " #{user.name} عزیز کد ورود مجدد شما #{user.verification_code} می باشد "
+      text = " #{ user.name } عزیز \nکد ورود مجدد شما به سامانه سیت و میت #{ user.verification_code } است \nسامانه سیت و میت "
+
       send_sms(user.phone_number , text)
-      render json: { message: "verification code is sent" } , status: 200
+
+      render json: { message: " کد فرستاده شد " } , status: 200
+
     else
       render json: { message: user.errors.full_messages } , status: :unprocessable_entity
     end
+
   end
 
   # ======================= reset password
