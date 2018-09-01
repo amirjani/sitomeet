@@ -202,6 +202,7 @@ ActiveRecord::Schema.define(version: 2018_08_26_111807) do
     t.integer "sex", null: false
     t.date "birthday", null: false
     t.integer "role", default: 1
+    t.string "photo"
     t.text "bio"
     t.string "username"
     t.string "email"

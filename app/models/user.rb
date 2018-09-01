@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # ======================== password
   has_secure_password
+  # ======================== model has an image and uploader
+  mount_uploader :photo , UserImageUploader
 
   # ======================== User::Roles
   # The available roles
@@ -13,6 +15,7 @@ class User < ApplicationRecord
   # ====================== validatioon
   validates :password_digest , confirmation: true
   validates :phone_number , uniqueness: true
+  validates :photo , file_size: { less_than: 5.megabytes }
 
   # ======================= enum
   enum sex: [ :male , :female ]

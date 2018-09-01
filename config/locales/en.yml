@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+
+  errors:
+    messages:
+      carrierwave_processing_error: " نمی توان سایز عکس را تغییر داد. "
+      carrierwave_integrity_error: " فایل شما عکس نیست. "
+      carrierwave_download_error: " قادر به دانلود عکس نیستیم. "
+

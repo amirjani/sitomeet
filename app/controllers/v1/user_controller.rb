@@ -1,15 +1,17 @@
 class V1::UserController < ApplicationController
 
+  # ====================== validations
   before_action :authenticate_request_user
-  skip_before_action :authenticate_request_user, :except => [:profile,:updatePassword , :updateProfile , :deleteUser]
+  skip_before_action :authenticate_request_user, :except => [ :profile, :updatePassword , :updateProfile , :deleteUser]
   load_and_authorize_resource
   skip_authorize_resource :only => [ :register , :verification , :deleteUser  ]
 
+  # ======================= can can
   rescue_from CanCan::AccessDenied do | exception |
     render json: { alert: exception.message }
   end
 
-  # register a user
+  # ======================= register a user
   def register
     # check if the password and password confirmation is same
     if params[:password] != params[:password_confirmation]
@@ -44,9 +46,9 @@ class V1::UserController < ApplicationController
       render json: user.errors, status: :unprocessable_entity
     end
   end
-  #  ======================== end =========================== //
+  #  ====================== end
 
-  # verify the user
+  # ======================= verify the user
   def verification
 
     # code is not sent
@@ -76,9 +78,9 @@ class V1::UserController < ApplicationController
       end
     end
   end
-  # ================================ end =================================== //
+  # ======================= end
 
-  # resend the code if time has been ended
+  # ======================= resend the code if time has been ended
   def resendCode
     user = User.where(phone_number: params[:phone_number]).first
     code = rand(1000..9999)
@@ -98,9 +100,9 @@ class V1::UserController < ApplicationController
       render json: { message: user.errors.full_messages } , status: :unprocessable_entity
     end
   end
-  # ====================================== end ================================== //
+  # ======================= end
 
-  # reset password
+  # ======================= reset password
   def resetPassword
     user = User.where(phone_number: params[:phone_number]).first
     if user
@@ -121,7 +123,7 @@ class V1::UserController < ApplicationController
       render json: { message: "user not found" } , status: 404
     end
   end
-  # ============================= end ================================== //
+  # ======================= end
 
   # get user profile
   def profile
@@ -206,7 +208,7 @@ class V1::UserController < ApplicationController
   end
 
   def updateParams
-    params.permit(:name , :phone_number , :sex , :birthday , :bio , :username , :email , :location , :is_private)
+    params.permit(:name , :phone_number , :sex , :birthday , :bio , :username , :email , :location , :is_private , :photo)
   end
 
   def send_sms(to,text)
