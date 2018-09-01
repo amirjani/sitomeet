@@ -13,20 +13,23 @@ class V1::UserController < ApplicationController
 
   # ======================= register a user
   def register
+
     # check if the password and password confirmation is same
     if params[:password] != params[:password_confirmation]
-      render json: { message: "passwords doesn't match" } , status: 400
+      # 409 status code is for conflict
+      render json: { message: " رمز عبور ها همخوانی ندارند " } , status: 409
       return
     end
+
     # check user is subscribed or not
-    user = User.find_by(phone_number: params[:phone_number])
-    if user
-      render json: { message: "you've already registered" } , status: 422
+    if User.find_by(phone_number: params[:phone_number])
+      render json: { message: "اطلاعات شما در حال حاضر در سامانه سیت و میت حضور دارد " } , status: 422
       return
     end
+
     # check the fields is filled or not
     if not params[:name] or not params[:phone_number] or not params[ :sex ] or not params[:password] or not params[:birthday]
-      render json: { message: "fill the parameters completely" }
+      render json: { message: " اطلاعات را به صورت کامل وارد کنید " } , status: 400
       return
     end
 
@@ -35,18 +38,22 @@ class V1::UserController < ApplicationController
     user.verified = false
     user.status = true
     user.forget_password = false
+
     code = rand(1000..9999)
     user.verification_code = code
+
     user.verification_code_sent_at = Time.now
+
     if user.save
-      text = "#{user.name} به سامانه ی سیت و میت خوش آمدید کد ورود شما #{ user.verification_code } است"
+      text =  " سلام #{ user.name } عزیز \n  به سامانه ی سیت و میت خوش آمدید \n کد عبور شما #{ code } است  \n سامانه ی سیت و میت"
+
       send_sms(user.phone_number , text)
-      render json: { message: "user successfully created and message code have sent" } , status: :created
+
+      render json: { message: " کاربر با موفقیت ساخته شد " } , status: :created
     else
       render json: user.errors, status: :unprocessable_entity
     end
   end
-  #  ====================== end
 
   # ======================= verify the user
   def verification
@@ -78,7 +85,6 @@ class V1::UserController < ApplicationController
       end
     end
   end
-  # ======================= end
 
   # ======================= resend the code if time has been ended
   def resendCode
@@ -100,7 +106,6 @@ class V1::UserController < ApplicationController
       render json: { message: user.errors.full_messages } , status: :unprocessable_entity
     end
   end
-  # ======================= end
 
   # ======================= reset password
   def resetPassword
@@ -123,9 +128,8 @@ class V1::UserController < ApplicationController
       render json: { message: "user not found" } , status: 404
     end
   end
-  # ======================= end
 
-  # get user profile
+  # ======================= get user profile
   def profile
     if @current_user
       render json: { message: @current_user } , status: 200
@@ -133,9 +137,8 @@ class V1::UserController < ApplicationController
       render json: { message: "invalid user token" } , status: 200
     end
   end
-  # =================================== end =============================== //
 
-  # updating pasword
+  # ======================= updating pasword
   def updatePassword
     user = @current_user
 
@@ -172,10 +175,9 @@ class V1::UserController < ApplicationController
       render json: user.errors , status: :unprocessable_entity
     end
   end
-  # ============================ end ===============================//
 
 
-  # update profile
+  # ======================= update profile
   def updateProfile
     currentPhoneNumber = @current_user.phone_number
     if @current_user.update(updateParams)
@@ -192,15 +194,14 @@ class V1::UserController < ApplicationController
     render json: { message: "updated" } , status: :ok
     end
   end
-  # ========================= end ============================== //
 
-  # delete user
+  # ======================= delete user
   def deleteUser
     @current_user.update(status: false ,role: :deleted ,phone_number: "#{@current_user.phone_number}*deleted*#{rand(11.99)}")
     render json: { message: "successfully deleted" }, status: 200
   end
-  # ========================= end ============================== //
 
+  # ======================= private for this controller
   private
 
   def register_params
