@@ -210,7 +210,7 @@ class V1::UserController < ApplicationController
   # ======================= delete user
   def deleteUser
     @current_user.update(status: false ,role: :deleted ,phone_number: "#{@current_user.phone_number}*deleted*#{rand(11.99)}")
-    render json: { message: "successfully deleted" }, status: 200
+    render json: { success: "با موفقیت حذف شد" }, status: 200
   end
 
   # ======================= private for this controller
