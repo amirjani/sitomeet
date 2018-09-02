@@ -18,6 +18,13 @@ class V1::NationalEventController < ApplicationController
        return
      end
 
+
+     # if title passed
+     if params[:title]
+       searchWithTitle
+       return
+     end
+
      #  if is day off only passed
      if params[ :is_day_off ]
        searchWithDayOff
@@ -173,6 +180,48 @@ class V1::NationalEventController < ApplicationController
   def searchWithPagination
     events = NationalEvent.order( "updated_at DESC" ).page(params[:page]).per(params[:per])
     render json: { message: events } , status: 302
+  end
+
+  # ============================= define search with title
+  def searchWithTitle
+    if params[:is_day_off] == true or params[:is_day_off] == "true"
+      #  if page and per parameters were available
+      if params[:page] and params[:page]
+        events = NationalEvent.where( title: params[:title] ).order( "updated_at DESC" ).page(params[:page]).per(params[:per])
+        render json:  events , status: 302
+        return
+      else
+
+        # if only day off matters
+        events = NationalEvent.where( title: params[:title] ).order( "updated_at DESC" ).all
+        render json: { message: events } , status: 302
+        return
+      end
+      #   day is on
+    elsif params[:is_day_off] == false or params[:is_day_off] == "false"
+
+      #  page and per sent
+      if params[:page] and params[:page]
+        events = NationalEvent.where( title: params[:title] ).order( "updated_at DESC" ).page(params[:page]).per(params[:per])
+        render json: { message: events } , status: 302
+        return
+      else
+
+        # if only day on matters
+        events = NationalEvent.where( title: params[:title] ).order( "updated_at DESC" ).all
+        render json: { message: events } , status: 302
+        return
+      end
+    end
+
+    if params[:page] and params[:per]
+      events = NationalEvent.where( title: params[:title] ).order( "updated_at DESC" ).page(params[:page]).per(params[:per])
+      render json: { message: events } , status: 302
+    end
+
+    events = NationalEvent.where( title: params[:title] ).order( "updated_at DESC" ).all
+    render json: { message: events } , status: 302
+
   end
 
 end
