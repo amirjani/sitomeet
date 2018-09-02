@@ -149,7 +149,7 @@ class V1::UserController < ApplicationController
   # ======================= get user profile
   def profile
     if @current_user
-      render json: { success: @current_user } , status: 200
+      render json: @current_user , status: 200
     else
       render json: { error: " توکن شما یافت نشد! " } , status: 200
     end
