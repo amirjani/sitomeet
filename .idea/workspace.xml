@@ -2,60 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e652f6bd-6600-40d7-8c21-2869ff59db0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/config/manifest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/images/.keep" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/active_model_serializer.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/cable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/channels/.keep" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/event.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/national_event.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/off_day.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/socials.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/user.coffee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/user_type.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/user_type_controller.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/v1/authentication.coffee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/v1/event.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/v1/off_day.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/v1/type_for_user.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/v1/user.coffee" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/javascripts/v1/user_type.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/event.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/national_event.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/off_day.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/socials.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/user.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/user_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/user_type_controller.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/v1/authentication.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/v1/event.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/v1/off_day.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/v1/type_for_user.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/v1/user.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/v1/user_type.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/v1/user_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/user_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/event_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/national_event_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/off_day_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/socials_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/user_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/user_type_controller_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/user_type_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/v1/authentication_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/v1/event_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/v1/off_day_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/v1/type_for_user_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/v1/user_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/v1/user_type_helper.rb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/application.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/application.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/assets/.keep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/v1/socials_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/socials_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/serializers/social_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/serializers/social_serializer.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/initializers/active_model_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/initializers/active_model_serializer.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -143,7 +92,7 @@
           <entry key="html" value="1" />
           <entry key="jpg" value="6" />
           <entry key="lock" value="1" />
-          <entry key="rb" value="46" />
+          <entry key="rb" value="50" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
@@ -152,20 +101,20 @@
           <entry key="HTML" value="1" />
           <entry key="Image" value="6" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Ruby" value="48" />
+          <entry key="Ruby" value="52" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Gemfile" value="4" />
-          <entry key="rb" value="4608" />
+          <entry key="rb" value="4627" />
           <entry key="yml" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ruby" value="4612" />
+          <entry key="Ruby" value="4631" />
           <entry key="YAML" value="121" />
         </counts>
       </usages-collector>
@@ -177,19 +126,37 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/v1/user_controller.rb">
+        <entry file="file://$PROJECT_DIR$/app/controllers/v1/authentication_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
+            <state relative-caret-position="-76">
+              <caret line="8" column="37" selection-start-line="8" selection-end-line="9" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/v1/socials_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-882">
+              <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/serializers/social_serializer.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="1" column="24" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="24" />
+            <state relative-caret-position="78">
+              <caret line="3" column="2" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/v1/user_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="4" column="71" selection-start-line="4" selection-start-column="71" selection-end-line="4" selection-end-column="71" />
             </state>
           </provider>
         </entry>
@@ -205,16 +172,6 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/initializers/assets.rb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/initializers/cookies_serializer.rb">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/initializers/filter_parameter_logging.rb">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
@@ -327,14 +284,14 @@
         <option value="$PROJECT_DIR$/app/controllers/v1/authentication_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/national_event_controller.rb" />
         <option value="$PROJECT_DIR$/app/commands/authorize_api_user.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/v1/socials_controller.rb" />
         <option value="$PROJECT_DIR$/config/application.rb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/user_controller.rb" />
         <option value="$PROJECT_DIR$/app/serializers/user_serializer.rb" />
-        <option value="$PROJECT_DIR$/app/serializers/social_serializer.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/v1/socials_controller.rb" />
         <option value="$PROJECT_DIR$/config/initializers/active_model_serializer.rb" />
+        <option value="$PROJECT_DIR$/app/serializers/social_serializer.rb" />
       </list>
     </option>
   </component>
@@ -384,6 +341,13 @@
               <item name="seetomeet" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="seetomeet" type="b2602c69:ProjectViewProjectNode" />
+              <item name="seetomeet" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+              <item name="v1" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="seetomeet" type="b2602c69:ProjectViewProjectNode" />
@@ -565,12 +529,12 @@
       <workItem from="1535259744581" duration="18474000" />
       <workItem from="1535346098454" duration="10191000" />
       <workItem from="1535778273017" duration="19140000" />
-      <workItem from="1535864012795" duration="3653000" />
+      <workItem from="1535864012795" duration="5257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172744000" />
+    <option name="totallyTimeSpent" value="174348000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -805,13 +769,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/v1/authentication_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/event_share_event.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
@@ -829,13 +786,6 @@
     <entry file="file://$PROJECT_DIR$/Gemfile.lock">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3431" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/v1/socials_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
@@ -886,13 +836,6 @@
     <entry file="file://$PROJECT_DIR$/config/initializers/wrap_parameters.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/v1/user_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="151" column="32" selection-start-line="151" selection-start-column="32" selection-end-line="151" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/assets.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -903,13 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/active_model_serializer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="38" selection-start-column="31" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schema.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -917,10 +853,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/user_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="71" selection-start-line="4" selection-start-column="71" selection-end-line="4" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/authentication_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="8" column="37" selection-start-line="8" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/active_model_serializer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="40" selection-start-column="40" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/serializers/social_serializer.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="1" column="24" selection-start-line="1" selection-start-column="20" selection-end-line="1" selection-end-column="24" />
+        <state relative-caret-position="78">
+          <caret line="3" column="2" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/socials_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-882">
+          <caret line="42" column="30" selection-start-line="42" selection-start-column="30" selection-end-line="42" selection-end-column="30" />
         </state>
       </provider>
     </entry>

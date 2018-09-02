@@ -8,7 +8,7 @@ class V1::SocialsController < ApplicationController
   def getSocials
     if @current_user
       socials = @current_user.socials
-      render json: { message: socials } , status: 200
+      render json: socials , status: 200
     else
       render json: { message: "کاربر پیدا نشد" } , status: 404
     end
