@@ -17,8 +17,12 @@ class V1::OffDayController < ApplicationController
   # ============================ userDayOfFromDateToDate
   def offDayFromTo
     # if start and end time sent
+
+    page = params[:page] || 1
+    per = params[:per] || 10
+
     if params[ :from ] and params[ :to ]
-      day = @current_user.off_days.where( date: params[:from]..params[:to] ).order( "date" ).all
+      day = @current_user.off_days.where( date: params[:from]..params[:to] ).order( "date" ).page(page).per(per)
       render json: { day: day } , status: 302
     else
       render json: { error: "پارامتر ها را کامل پاس دهید" } , status: :not_found

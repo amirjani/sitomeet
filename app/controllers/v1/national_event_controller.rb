@@ -43,8 +43,14 @@ class V1::NationalEventController < ApplicationController
 
   # ============================= user saved national event
   def userIndex
-    events = @current_user.national_event.order(" updated_at DESC ").page(params[:page]).per(params[:per])
+
+    page = params[:page] || 1
+    per = params[:per] || 10
+
+    events = @current_user.national_event.order(" updated_at DESC ").page(page).per(per)
+
     render json: { message: events } , status: 302
+
   end
 
   # ============================= create national event
@@ -100,12 +106,12 @@ class V1::NationalEventController < ApplicationController
   # ================================ PRIVATE TO THIS CONTROLLER ========================================
   private
 
-  # ============================= parameters to sent
+  # ================================ parameters to sent
   def nationalEventParams
     params.permit( :date , :title , :description , :is_day_off)
   end
 
-  # ============================= define search with date
+  # ================================ define search with date
   def searchWithDate
       # if day is off and parameters of page and per passed
       if params[ :page ] and params[:per] and params[ :is_day_off ] == true or params[ :is_day_off ] == "true"
@@ -143,7 +149,7 @@ class V1::NationalEventController < ApplicationController
       render json: { message: events } , status: 302
   end
 
-  # ============================= define search with is day off
+  # ================================ define search with is day off
   def searchWithDayOff
     if params[:is_day_off] == true or params[:is_day_off] == "true"
       #  if page and per parameters were available
@@ -176,13 +182,13 @@ class V1::NationalEventController < ApplicationController
     end
   end
 
-  # ============================= define search only with pagination
+  # ================================ define search only with pagination
   def searchWithPagination
     events = NationalEvent.order( "updated_at DESC" ).page(params[:page]).per(params[:per])
     render json: { message: events } , status: 302
   end
 
-  # ============================= define search with title
+  # ================================ define search with title
   def searchWithTitle
     if params[:is_day_off] == true or params[:is_day_off] == "true"
       #  if page and per parameters were available
