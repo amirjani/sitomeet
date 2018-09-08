@@ -32,9 +32,9 @@ class V1::SocialsController < ApplicationController
     # save social media
     socials = @current_user.socials.build(socialParams)
     if socials.save
-      render json: { socials: socials } , status: :ok
+      render json: socials , status: :ok
     else
-      render json: { error: socials.errors } , status: 400
+      render json: socials.errors , status: 400
     end
   end
 
@@ -43,12 +43,12 @@ class V1::SocialsController < ApplicationController
     social = @current_user.socials.where( id: params[:id]).last
     if social
       if social.update(socialParams)
-        render json: { success: social } , status: 202
+        render json: social  , status: 202
       else
-        render json: { error: social.errors } , status: 400
+        render json: social.errors, status: 400
       end
     else
-      render json: { error: social.errors } , status: 404
+      render json: social.errors , status: 404
     end
   end
 
@@ -59,7 +59,7 @@ class V1::SocialsController < ApplicationController
       if socials.destroy_all
         render json: { success: " تمامی شبکه های اجتماهی حذف شدند " } , status: 202
       else
-        render json: { error: socials.errors } , status: 400
+        render json: socials.errors , status: 400
       end
     else
       render json: { error: " شبکه های اجتماعی کاربر مورد نظر یافت نشد " } , status: 404
@@ -80,7 +80,7 @@ class V1::SocialsController < ApplicationController
       if social.destroy
         render json: { message: " شبکه اجتماعی حذف شد " } , status: 200
       else
-        render json: { message: social.errors } , status: 400
+        render json: social.errors , status: 400
       end
     else
       render json: { message: " شبکه اجتماعی مورد نظر یافت نشد " } , status: 404
