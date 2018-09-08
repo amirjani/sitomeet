@@ -33,16 +33,12 @@ class V1::Admin::UserController < ApplicationController
 
   # ======================= index deleted user
   def indexDeletedUser
-
-    page = params[:page] || 1
-    per = param[:per] || 10
-
-    render json: User.where( "phone_number LIKE ?" , "%deletedByAdmin%" ).page(page).per(per)
+    render json: User.where( "phone_number LIKE ?" , "%deletedByAdmin%" ).page(params[:page] || 1).per(param[:per] || 10)
   end
 
   # ======================= index active users
   def indexActiveUser
-    render json: User.where( "phone_number NOT LIKE ?" ,  "%deletedByAdmin%" ).where( "verified" , true ).all
+    render json: User.where( "phone_number NOT LIKE ?" ,  "%deletedByAdmin%" ).where( "verified" , true ).page(params[:page] || 1).per(params[:per] || 10)
   end
 
 

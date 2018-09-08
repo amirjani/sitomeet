@@ -47,6 +47,7 @@ Rails.application.routes.draw do
     # ============== user event =================== #
     post    "user/event/create"              , to: "event#create"
 
+    # ================================== admin routes ============================ #
     namespace :admin , :defaults => {:format => :json} do
       get     "users"                           , to: "user#index"
       get     "users/active"                    , to: "user#indexActiveUser"
