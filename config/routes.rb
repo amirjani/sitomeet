@@ -58,7 +58,8 @@ Rails.application.routes.draw do
       delete  "national_event/delete/:id"     , to: "national_event#delete"
 
       # ============== user social index ================= #
-      get     "user/:user_id/social"               , to: "social#indexUserSocial"
+      get     "user/:user_id/social"          , to: "social#indexUserSocial"
+      get     "user/:user_id/social/:id"      , to: "social#showSocial"
 
     end
 
