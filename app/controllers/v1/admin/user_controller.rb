@@ -24,6 +24,15 @@ class V1::Admin::UserController < ApplicationController
     render json: { success: "با موفقیت حذف شد" } , status: 200
   end
 
+  # ======================= verify user manually with admin after calling to admins
+  def verify
+    if User.where( id: params[:id] ).update( verified: true)
+      render json: { success: "کاربر به روز رسانی شد" }
+    end
+  end
+
+  
+
 
 
 
