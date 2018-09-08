@@ -57,6 +57,9 @@ Rails.application.routes.draw do
       put     "national_event/update/:id"     , to: "national_event#update"
       delete  "national_event/delete/:id"     , to: "national_event#delete"
 
+      # ============== user social index ================= #
+      get     "user/:user_id/social"               , to: "social#indexUserSocial"
+
     end
 
   end
