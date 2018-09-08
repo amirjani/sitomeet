@@ -22,14 +22,6 @@ Rails.application.routes.draw do
     delete  "user/social_media/delete_all"  , to: "socials#delete_all"
     delete  "user/social_media/delete/:id"  , to: "socials#delete"
 
-    # ============== national event =================== #
-    get     "national_event"                , to: "national_event#index"
-    get     "national_event/mySaved"        , to: "national_event#userIndex"
-    get     "national_event/time_between"   , to: "national_event#eventsInMonth"
-    post    "national_event/create"         , to: "national_event#create"
-    put     "national_event/update/:id"     , to: "national_event#update"
-    delete  "national_event/delete/:id"     , to: "national_event#delete"
-
     # =============== user types =================== #
     get     "user/type"                     , to: "type_for_user#getUserTypes"
     get     "user/type/find"                , to: "type_for_user#find"
@@ -49,11 +41,22 @@ Rails.application.routes.draw do
 
     # ================================== admin routes ============================ #
     namespace :admin , :defaults => {:format => :json} do
+
+      # ============= user event ======================== #
       get     "users"                           , to: "user#index"
       get     "users/active"                    , to: "user#indexActiveUser"
       get     "users/deleted"                   , to: "user#indexDeletedUser"
       delete  "user/:id/delete"                 , to: "user#delete"
       put     "user/:id/verify"                 , to: "user#verify"
+
+      # ============== national event =================== #
+      get     "national_event"                , to: "national_event#index"
+      get     "national_event/mySaved"        , to: "national_event#userIndex"
+      get     "national_event/time_between"   , to: "national_event#eventsInMonth"
+      post    "national_event/create"         , to: "national_event#create"
+      put     "national_event/update/:id"     , to: "national_event#update"
+      delete  "national_event/delete/:id"     , to: "national_event#delete"
+
     end
 
   end
