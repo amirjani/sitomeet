@@ -8,13 +8,29 @@
 
 users =
     User.create(
+        [
+            name: "امیرحسین جانی" ,
+            phone_number: "09334682529" ,
+            password_digest: "$2a$10$bz.MWukM2sUWyFjq6j1kyujt8W2l3XOZJchOMN0aeJ7iLildXR6qW" ,
+            sex: 0 ,
+            birthday: "2018-08-04",
+            role: 0,
+            is_private: true ,
+            verification_code: 1111 ,
+            verified: true ,
+            status: true ,
+            verification_code_sent_at: "2018-08-25 07:49:10.778897" ,
+            forget_password: false
+        ]
+    ) ,
+        User.create(
             [
-                name: "amir jani" ,
-                phone_number: "09334682529" ,
+                name: "احمد آزاد" ,
+                phone_number: "09382782419" ,
                 password_digest: "$2a$10$bz.MWukM2sUWyFjq6j1kyujt8W2l3XOZJchOMN0aeJ7iLildXR6qW" ,
                 sex: 0 ,
                 birthday: "2018-08-04",
-                role: 0,
+                role: 1,
                 is_private: true ,
                 verification_code: 1111 ,
                 verified: true ,

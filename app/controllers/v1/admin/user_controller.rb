@@ -10,8 +10,14 @@ class V1::Admin::UserController < ApplicationController
     render json: { alert: exception.message }
   end
 
+  # ======================= show all user for admin
   def index
-    render json: { amir: "amir" }
+    page = params[:page] || 1
+    per = params[:per] || 10
+
+    render json: User.page(page).per(per)
   end
+
+  
 
 end
