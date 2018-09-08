@@ -15,7 +15,7 @@ class V1::Admin::UserController < ApplicationController
     page = params[:page] || 1
     per = params[:per] || 10
 
-    render json: User.page(page).per(per)
+    render json: User.page(page).per(per) , status: 200
   end
 
   # ======================= delete user
@@ -27,12 +27,16 @@ class V1::Admin::UserController < ApplicationController
   # ======================= verify user manually with admin after calling to admins
   def verify
     if User.where( id: params[:id] ).update( verified: true)
-      render json: { success: "کاربر به روز رسانی شد" }
+      render json: { success: "کاربر به روز رسانی شد" } , status: 200
     end
   end
 
-  
+  # ======================= index deleted user
+  def indexDeletedUser
+    render json: User.where( "phone_number LIKE ?" , "%deletedByAdmin%" ).all
+  end
 
+  
 
 
 

@@ -49,6 +49,7 @@ Rails.application.routes.draw do
 
     namespace :admin , :defaults => {:format => :json} do
       get     "users"                           , to: "user#index"
+      get     "users/deleted"                   , to: "user#indexDeletedUser"
       delete  "user/:id/delete"                 , to: "user#delete"
       put     "user/:id/verify"                 , to: "user#verify"
     end
