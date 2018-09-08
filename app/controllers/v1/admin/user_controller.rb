@@ -18,6 +18,13 @@ class V1::Admin::UserController < ApplicationController
     render json: User.page(page).per(per)
   end
 
-  
+  # ======================= delete user
+  def delete
+    User.where( id: params[:id] ).update(status: false ,role: :deleted ,phone_number: "deletedByAdmin")
+    render json: { success: "با موفقیت حذف شد" } , status: 200
+  end
+
+
+
 
 end

@@ -47,8 +47,10 @@ Rails.application.routes.draw do
     # ============== user event =================== #
     post    "user/event/create"              , to: "event#create"
 
-    namespace :admin do
-      get   "users"                          , to: "user#index"
+    namespace :admin , :defaults => {:format => :json} do
+      get     "users"                           , to: "user#index"
+      delete  "user/delete/:id"                 , to: "user#delete"
+      put     "user/update/:id"                 , to: "user#delete"
     end
 
   end
