@@ -47,7 +47,9 @@ Rails.application.routes.draw do
     # ============== user event =================== #
     post    "user/event/create"              , to: "event#create"
 
-
+    namespace :admin do
+      get   "users"                          , to: "user#index"
+    end
 
   end
 

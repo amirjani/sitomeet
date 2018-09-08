@@ -13,7 +13,6 @@ class V1::UserController < ApplicationController
 
   # ======================= register a user
   def register
-
     # check if the password and password confirmation is same
     if params[:password] != params[:password_confirmation]
       # 409 status code is for conflict

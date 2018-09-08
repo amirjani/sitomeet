@@ -17,7 +17,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :email , null: true , unique: true
       t.string :location , null: true
       t.boolean :is_private , default:true
-      # hiddens
+      # hidden
       t.string :verification_code , null: false
       t.boolean :verified , default: false
       t.boolean :status , default: true

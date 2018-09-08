@@ -27,4 +27,11 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def authenticate_request_admin
+    @current_user = AuthorizeApiUser::call(request.headers).result
+    if @current_user.role != "admin"
+      render json: { error:  "شما دسترسی به این آدرس ها را ندارید" }, status: 401
+    end
+  end
+
 end
