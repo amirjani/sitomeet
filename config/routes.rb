@@ -50,16 +50,18 @@ Rails.application.routes.draw do
       put     "user/:id/verify"                 , to: "user#verify"
 
       # ============== national event =================== #
-      get     "national_event"                , to: "national_event#index"
-      get     "national_event/mySaved"        , to: "national_event#userIndex"
-      get     "national_event/time_between"   , to: "national_event#eventsInMonth"
-      post    "national_event/create"         , to: "national_event#create"
-      put     "national_event/update/:id"     , to: "national_event#update"
-      delete  "national_event/delete/:id"     , to: "national_event#delete"
+      get     "national_event"                  , to: "national_event#index"
+      get     "national_event/mySaved"          , to: "national_event#userIndex"
+      get     "national_event/time_between"     , to: "national_event#eventsInMonth"
+      post    "national_event/create"           , to: "national_event#create"
+      put     "national_event/update/:id"       , to: "national_event#update"
+      delete  "national_event/delete/:id"       , to: "national_event#delete"
 
       # ============== user social index ================= #
-      get     "user/:user_id/social"          , to: "social#indexUserSocial"
-      get     "user/:user_id/social/:id"      , to: "social#showSocial"
+      get     "user/:user_id/social"            , to: "social#indexUserSocial"
+      get     "user/:user_id/social/:id"        , to: "social#showSocial"
+      delete  "user/:user_id/social/:id/delete" , to: "social#delete"
+      put     "user/:user_id/social/:id/update" , to: "social#update"
 
     end
 

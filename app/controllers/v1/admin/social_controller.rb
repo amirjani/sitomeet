@@ -24,5 +24,34 @@ class V1::Admin::SocialController < ApplicationController
     end
   end
 
+  # ============================ delete social
+  def delete
+    if Social.where( user_id: params[:user_id] ).where( id: params[:id] ).last.destroy
+      render json: { success: "شبکه ی مورد نظر حذف شد" } , status: 200
+    else
+      render json: { error: " شبکه یا کاربر مورد نظر یافت نشد " } , status: 404
+    end
+  end
+
+  # ============================ update social
+  def update
+    social = Social.where( user_id: params[:user_id] ).where( id: params[:id] ).last
+    if social
+      if social.update(updateParams)
+        render json: social
+      else
+        render json: { error: social.errors } ,status: 404
+      end
+    else
+      render json: { error: " شبکه یا کاربر مورد نظر یافت نشد " } , status: 404
+    end
+  end
+
+  # ============================ private in this controller
+  private
+
+  def updateParams
+    params.permit( :name , :link )
+  end
 
 end
