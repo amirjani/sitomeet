@@ -41,9 +41,9 @@ class V1::Admin::UserController < ApplicationController
   end
 
   # ======================= index active users
-  # def indexActiveUser
-  #   render json: User.where( "phone_number NOT LIKE ?" ,  "%deletedByAdmin%" ).where( "verified" , true ).all
-  # end
+  def indexActiveUser
+    render json: User.where( "phone_number NOT LIKE ?" ,  "%deletedByAdmin%" ).where( "verified" , true ).all
+  end
 
 
 
