@@ -1,3 +1,3 @@
 class OffDaySerializer < ActiveModel::Serializer
-  attributes :id , :date , :description
+  attributes :id , :user_id , :date , :description
 end
