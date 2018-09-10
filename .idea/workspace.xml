@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e652f6bd-6600-40d7-8c21-2869ff59db0c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/controllers/v1/admin/off_day_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/admin/off_day_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/serializers/off_day_serializer.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/serializers/off_day_serializer.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -96,7 +94,7 @@
           <entry key="jpg" value="6" />
           <entry key="lock" value="1" />
           <entry key="log" value="1" />
-          <entry key="rb" value="91" />
+          <entry key="rb" value="92" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
@@ -105,20 +103,20 @@
           <entry key="HTML" value="1" />
           <entry key="Image" value="6" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Ruby" value="93" />
+          <entry key="Ruby" value="94" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Gemfile" value="4" />
-          <entry key="rb" value="10093" />
+          <entry key="rb" value="10359" />
           <entry key="yml" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ruby" value="10097" />
+          <entry key="Ruby" value="10363" />
           <entry key="YAML" value="121" />
         </counts>
       </usages-collector>
@@ -141,8 +139,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/v1/admin/off_day_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="32" column="70" selection-start-line="32" selection-start-column="70" selection-end-line="32" selection-end-column="70" />
+            <state relative-caret-position="-1376">
+              <caret lean-forward="true" />
             </state>
           </provider>
         </entry>
@@ -496,12 +494,12 @@
       <workItem from="1535864012795" duration="11967000" />
       <workItem from="1536385146487" duration="17912000" />
       <workItem from="1536555563199" duration="27000" />
-      <workItem from="1536555633272" duration="4141000" />
+      <workItem from="1536555633272" duration="5504000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="203138000" />
+    <option name="totallyTimeSpent" value="204501000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -823,13 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/v1/off_day_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/admin/social_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -844,6 +835,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/off_day_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="729">
@@ -853,8 +851,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/admin/off_day_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2">
-          <caret line="32" column="70" selection-start-line="32" selection-start-column="70" selection-end-line="32" selection-end-column="70" />
+        <state relative-caret-position="-1376">
+          <caret lean-forward="true" />
         </state>
       </provider>
     </entry>
