@@ -66,7 +66,7 @@ Rails.application.routes.draw do
 
       # ============== user social index ================= #
       get     "user/:user_id/off_day"           , to: "off_day#index"
-      get     "user/:user_id/social/:id"        , to: "social#showSocial"
+      get     "user/:user_id/off_day/:id"       , to: "off_day#show"
       delete  "user/:user_id/social/:id/delete" , to: "social#delete"
       put     "user/:user_id/social/:id/update" , to: "social#update"
 

@@ -23,6 +23,20 @@ class V1::Admin::OffDayController < ApplicationController
     end
   end
 
+  # ============================ show
+  def show
+    off_day = OffDay.where( user_id: params[:user_id] ).where( id: params[:id] ).last
+    if User.where( id: params[:user_id] ).last
+      if off_day
+        render json: off_day , status: 200
+      else
+        render json: { error: " روز مورد نظر پیدا نشد " }
+      end
+    else
+      render json: { error: " کاربر مورد نظر پیدا نشد " }
+    end
+  end
+
 
 
 end
