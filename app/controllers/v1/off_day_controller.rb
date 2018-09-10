@@ -17,7 +17,6 @@ class V1::OffDayController < ApplicationController
   # ============================ userDayOfFromDateToDate
   def offDayFromTo
     # if start and end time sent
-
     page = params[:page] || 1
     per = params[:per] || 10
 

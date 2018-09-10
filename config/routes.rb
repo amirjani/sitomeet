@@ -63,6 +63,13 @@ Rails.application.routes.draw do
       delete  "user/:user_id/social/:id/delete" , to: "social#delete"
       put     "user/:user_id/social/:id/update" , to: "social#update"
 
+
+      # ============== user social index ================= #
+      get     "user/:user_id/off_day"           , to: "off_day#index"
+      get     "user/:user_id/social/:id"        , to: "social#showSocial"
+      delete  "user/:user_id/social/:id/delete" , to: "social#delete"
+      put     "user/:user_id/social/:id/update" , to: "social#update"
+
     end
 
   end
