@@ -22,7 +22,7 @@ class ApplicationController < ActionController::API
   def authenticate_request_user
     @current_user = AuthorizeApiUser::call(request.headers).result
     unless @current_user
-      render json: { error: 'Not Authorized. please signin' }, status: 401
+      render json: { error: "شما هنوز در سیستم ثبت نام نکرده اید !" }, status: 401
       return
     end
   end

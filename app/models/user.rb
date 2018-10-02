@@ -12,7 +12,7 @@ class User < ApplicationRecord
     self.role == requested_role.to_s
   end
 
-  # ====================== validatioon
+  # ====================== validation
   validates :password_digest , confirmation: true
   validates :phone_number , uniqueness: true
   validates :photo , file_size: { less_than: 5.megabytes }

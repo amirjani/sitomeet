@@ -3,6 +3,7 @@ class V1::UserController < ApplicationController
   # ====================== validations
   before_action :authenticate_request_user
   skip_before_action :authenticate_request_user, :except => [ :profile, :updatePassword , :updateProfile , :deleteUser]
+
   load_and_authorize_resource
   skip_authorize_resource :only => [ :register , :verification , :deleteUser  ]
 
@@ -27,7 +28,7 @@ class V1::UserController < ApplicationController
     end
 
     # check the fields is filled or not
-    if not params[:name] or not params[:phone_number] or not params[ :sex ] or not params[:password] or not params[:birthday]
+    if not params[:first_name] or not params[:family_name] or not params[:phone_number] or not params[ :sex ] or not params[:password] or not params[:birthday]
       render json: { error: " اطلاعات را به صورت کامل وارد کنید " } , status: 400
       return
     end
@@ -39,12 +40,12 @@ class V1::UserController < ApplicationController
     user.forget_password = false
 
     code = rand(1000..9999)
-    user.verification_code = code
 
+    user.verification_code = code
     user.verification_code_sent_at = Time.now
 
     if user.save
-      text =  " سلام #{ user.name } عزیز \n  به سامانه ی سیت و میت خوش آمدید \n کد عبور شما #{ code } است  \n سامانه ی سیت و میت"
+      text =  " سلام #{ user.first_name + ' ' + user.family_name } عزیز \n  به سامانه ی سیت و میت خوش آمدید \n کد عبور شما #{ code } است  \n سامانه ی سیت و میت"
 
       send_sms(user.phone_number , text)
 
@@ -217,7 +218,7 @@ class V1::UserController < ApplicationController
 
   # ======================= register parameters
   def register_params
-    params.permit( :name , :phone_number , :password , :sex , :birthday)
+    params.permit( :first_name , :family_name , :phone_number , :password , :sex , :birthday , :email)
   end
 
   # ======================= update parameters

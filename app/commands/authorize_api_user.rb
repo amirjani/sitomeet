@@ -12,7 +12,7 @@ class AuthorizeApiUser
   attr_reader :headers
 
 
-  def encode(payload, exp = 1200.hours.from_now)
+  def encode(payload, exp = 2400.hours.from_now)
     payload[:exp] = exp.to_i
     JWT.encode(payload, Rails.application.secrets.secret_key_base)
   end
