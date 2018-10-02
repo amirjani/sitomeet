@@ -9,10 +9,12 @@
 users =
     User.create(
         [
-            name: "امیرحسین جانی" ,
+            first_name: "امیرحسین" ,
+            family_name: "جانی",
             phone_number: "09334682529" ,
             password_digest: "$2a$10$bz.MWukM2sUWyFjq6j1kyujt8W2l3XOZJchOMN0aeJ7iLildXR6qW" ,
             sex: 0 ,
+            email: "amir.jani500@gmail.com",
             birthday: "2018-08-04",
             role: 0,
             is_private: true ,
@@ -25,8 +27,10 @@ users =
     ) ,
         User.create(
             [
-                name: "احمد آزاد" ,
+                first_name: "احمد" ,
+                family_name: "آزاد" ,
                 phone_number: "09382782419" ,
+                email: "ahmad@azad.com" ,
                 password_digest: "$2a$10$bz.MWukM2sUWyFjq6j1kyujt8W2l3XOZJchOMN0aeJ7iLildXR6qW" ,
                 sex: 0 ,
                 birthday: "2018-08-04",
