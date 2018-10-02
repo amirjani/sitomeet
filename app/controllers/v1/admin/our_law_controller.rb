@@ -9,6 +9,14 @@ class V1::Admin::OurLawController < ApplicationController
     render json: { alert: exception.message }
   end
 
+  # ============================ show
+  def show
+    render json: OurLaw.last , status: 200
+  end
 
+  # =========================== store
+  def store
+
+  end
 
 end

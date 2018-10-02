@@ -135,8 +135,10 @@ ActiveRecord::Schema.define(version: 2018_10_02_062810) do
   end
 
   create_table "our_laws", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
     t.string "title", null: false
     t.text "description", null: false
+    t.index ["user_id"], name: "index_our_laws_on_user_id"
   end
 
   create_table "share_event_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -240,6 +242,7 @@ ActiveRecord::Schema.define(version: 2018_10_02_062810) do
   add_foreign_key "invitees", "invite_friends", column: "invite_friends_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "national_events", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "off_days", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "our_laws", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "share_event_types", "share_events", on_update: :cascade, on_delete: :cascade
   add_foreign_key "share_event_types", "types", on_update: :cascade, on_delete: :cascade
   add_foreign_key "socials", "users", on_update: :cascade, on_delete: :cascade

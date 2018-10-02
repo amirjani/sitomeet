@@ -24,6 +24,7 @@ class User < ApplicationRecord
 
   # ============== one to many
   has_many :national_event  ,     :dependent => :destroy
+  has_many :our_laws        ,     :dependent => :destroy
   has_many :socials         ,     :dependent => :destroy
   has_many :off_days        ,     :dependent => :destroy
 
