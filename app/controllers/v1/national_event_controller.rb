@@ -19,4 +19,14 @@ class V1::NationalEventController < ApplicationController
     end
   end
 
+  # ============================= events in month
+  def eventsInMonth
+    # if start and end time sent
+    if params[ :start ] and params[ :end ]
+      render json: NationalEvent.where( date: params[:start]..params[:end] ).order( "date" ).all , status: 302
+    else
+      render json: { error: "پارامتر ها را کامل پاس دهید" } , status: :not_found
+    end
+  end
+
 end
