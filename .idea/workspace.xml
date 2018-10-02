@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e652f6bd-6600-40d7-8c21-2869ff59db0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/controllers/v1/admin/our_law_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/v1/admin/our_law_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -94,7 +94,7 @@
           <entry key="jpg" value="6" />
           <entry key="lock" value="1" />
           <entry key="log" value="2" />
-          <entry key="rb" value="120" />
+          <entry key="rb" value="122" />
           <entry key="yml" value="2" />
         </counts>
       </usages-collector>
@@ -103,20 +103,20 @@
           <entry key="HTML" value="1" />
           <entry key="Image" value="6" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Ruby" value="122" />
+          <entry key="Ruby" value="124" />
           <entry key="YAML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Gemfile" value="4" />
-          <entry key="rb" value="11963" />
+          <entry key="rb" value="12275" />
           <entry key="yml" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Ruby" value="11967" />
+          <entry key="Ruby" value="12279" />
           <entry key="YAML" value="121" />
         </counts>
       </usages-collector>
@@ -127,16 +127,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="601">
-              <caret line="74" column="71" lean-forward="true" selection-start-line="74" selection-start-column="71" selection-end-line="74" selection-end-column="71" />
+            <state relative-caret-position="621">
+              <caret line="42" column="65" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/v1/our_law_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="468">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/v1/off_day_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="9" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/v1/admin/our_law_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="660">
@@ -224,7 +242,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/models/group_user.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180825054413_event_type.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20180826061856_create_event_types.rb" />
         <option value="$PROJECT_DIR$/app/models/event_type.rb" />
@@ -269,12 +286,13 @@
         <option value="$PROJECT_DIR$/log/development.log" />
         <option value="$PROJECT_DIR$/db/migrate/20180811061803_create_users.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/user_controller.rb" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20181002062810_create_our_laws.rb" />
         <option value="$PROJECT_DIR$/app/models/our_law.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/v1/admin/our_law_controller.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/v1/our_law_controller.rb" />
       </list>
     </option>
   </component>
@@ -532,12 +550,12 @@
       <workItem from="1536555563199" duration="27000" />
       <workItem from="1536555633272" duration="5995000" />
       <workItem from="1538405210450" duration="32000" />
-      <workItem from="1538458945119" duration="4860000" />
+      <workItem from="1538458945119" duration="5442000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="209884000" />
+    <option name="totallyTimeSpent" value="210466000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -550,7 +568,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49939686" visible="true" weight="0.22389127" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -619,11 +636,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/404.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1116" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/type_for_user_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="279">
@@ -746,13 +758,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="962">
           <caret line="37" column="37" selection-start-line="37" selection-start-column="37" selection-end-line="37" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/v1/off_day_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-26">
-          <caret line="25" column="8" lean-forward="true" selection-start-line="25" selection-start-column="8" selection-end-line="25" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -883,13 +888,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="601">
-          <caret line="74" column="71" lean-forward="true" selection-start-line="74" selection-start-column="71" selection-end-line="74" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/v1/admin/national_event_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="521">
@@ -901,6 +899,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="51" column="53" selection-start-line="51" selection-start-column="53" selection-end-line="51" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/off_day_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="4" column="2" selection-start-line="4" selection-start-column="2" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/v1/our_law_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="42" column="65" selection-start-line="42" selection-start-column="65" selection-end-line="42" selection-end-column="65" />
         </state>
       </provider>
     </entry>

@@ -39,6 +39,9 @@ Rails.application.routes.draw do
     # ============== user event =================== #
     post    "user/event/create"              , to: "event#create"
 
+    # ============== our law ====================== #
+    get     "our_law"                         , to: "our_law#show"
+
     # ================================== admin routes ============================ #
     namespace :admin , :defaults => {:format => :json} do
 
