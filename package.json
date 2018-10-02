@@ -1,5 +1,7 @@
 {
   "name": "seetomeet",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap-v4-rtl": "^4.1.1-0"
+  }
 }
