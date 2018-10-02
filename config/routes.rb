@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :v1 , :defaults => {:format => :json} do
 
-    # ============== user's registration and login ( order is important ) =================== #
+    # ============== user's registration and login =================== #
     post    "user/register"                 , to: "user#register"
     put     "user/verify"                   , to: "user#verification"
     post    "user/token"                    , to: "authentication#authenticateUser"
@@ -10,44 +10,42 @@ Rails.application.routes.draw do
     post    "user/reset_password"           , to: "user#resetPassword"
     put     "user/update_password"          , to: "user#updatePassword"
     delete  "user/delete_account"           , to: "user#deleteUser"
-
-    # ============== user's profile =================== #
+    # ============== user's profile ================================= #
     get     "user/profile"                  , to: "user#profile"
     put     "user/update_profile"           , to: "user#updateProfile"
     put     "user/upload_profile_picture"   , to: "user#uploadProfilePicture"
-
-    # ============== social media =================== #
+    # ============== social media =================================== #
     get     "user/social_media"             , to: "socials#getSocials"
     post    "user/social_media/create"      , to: "socials#create"
     put     "user/social_media/update/:id"  , to: "socials#update"
     delete  "user/social_media/delete_all"  , to: "socials#delete_all"
     delete  "user/social_media/delete/:id"  , to: "socials#delete"
-
-    # =============== user types =================== #
+    # =============== user types =================================== #
     get     "user/type"                     , to: "type_for_user#getUserTypes"
     get     "user/type/find"                , to: "type_for_user#find"
     post    "user/type/create"              , to: "type_for_user#create"
     put     "user/type/:id"                 , to: "type_for_user#update"
     delete  "user/type/delete/:id"          , to: "type_for_user#delete"
-
-    # ============== user off days =================== #
+    # ============== user off days ================================ #
     get     "user/off_day"                  , to: "off_day#offDayUser"
     get     "user/off_day/from_to"          , to: "off_day#offDayFromTo"
     post    "user/off_day/create"           , to: "off_day#create"
     put     "user/off_day/update/:id"       , to: "off_day#update"
     delete  "user/off_day/delete/:id"       , to: "off_day#delete"
-
-    # ============== user event =================== #
+    # ============== user event =================================== #
     post    "user/event/create"             , to: "event#create"
-
-    # ============== our law ====================== #
+    # ============== our law ====================================== #
     get     "our_law"                       , to: "our_law#show"
-
-    # ============== national event routes ================= #
+    # ============== national event routes ======================== #
     get     "today_national_event"          , to: "national_event#todayEvent"
     get     "national_event/time_between"   , to: "national_event#eventsInMonth"
-
+    # ============================================================================ #
+    # ============================================================================ #
+    # ============================================================================ #
     # ================================== admin routes ============================ #
+    # ============================================================================ #
+    # ============================================================================ #
+    # ============================================================================ #
     namespace :admin , :defaults => {:format => :json} do
 
       # ============= user event ======================== #
