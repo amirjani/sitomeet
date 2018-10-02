@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     # ============== user's profile =================== #
     get     "user/profile"                  , to: "user#profile"
     put     "user/update_profile"           , to: "user#updateProfile"
+    put     "user/upload_profile_picture"   , to: "user#uploadProfilePicture"
 
     # ============== social media =================== #
     get     "user/social_media"             , to: "socials#getSocials"

@@ -2,7 +2,7 @@ class V1::UserController < ApplicationController
 
   # ====================== validations
   before_action :authenticate_request_user
-  skip_before_action :authenticate_request_user, :except => [ :profile, :updatePassword , :updateProfile , :deleteUser]
+  skip_before_action :authenticate_request_user, :except => [ :profile, :updatePassword , :updateProfile , :deleteUser , :uploadProfilePicture]
 
   load_and_authorize_resource
   skip_authorize_resource :only => [ :register , :verification , :deleteUser  ]
@@ -188,6 +188,14 @@ class V1::UserController < ApplicationController
     end
   end
 
+  # ======================= upload profile picture
+  def uploadProfilePicture
+    if @current_user.update(profilePicture)
+      render json: @current_user , status: 200
+    else
+      render json: { error: "مشکلی پیش آمده است" } , status: 404
+    end
+  end
 
   # ======================= update profile
   def updateProfile
@@ -213,6 +221,8 @@ class V1::UserController < ApplicationController
     render json: { success: "با موفقیت حذف شد" }, status: 200
   end
 
+
+
   # ======================= private for this controller
   private
 
@@ -223,7 +233,12 @@ class V1::UserController < ApplicationController
 
   # ======================= update parameters
   def updateParams
-    params.permit(:name , :phone_number , :sex , :birthday , :bio , :username , :email , :location , :is_private , :photo)
+    params.permit(:first_name , :family_name , :phone_number , :sex , :birthday , :bio , :username , :email , :location , :is_private , :photo)
+  end
+
+  # ======================= upload profile
+  def profilePicture
+    params.permit(:photo)
   end
 
   # ======================= send sms
