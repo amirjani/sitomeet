@@ -38,10 +38,14 @@ Rails.application.routes.draw do
     delete  "user/off_day/delete/:id"       , to: "off_day#delete"
 
     # ============== user event =================== #
-    post    "user/event/create"              , to: "event#create"
+    post    "user/event/create"             , to: "event#create"
 
     # ============== our law ====================== #
-    get     "our_law"                         , to: "our_law#show"
+    get     "our_law"                       , to: "our_law#show"
+
+    # ============== national event routes ================= #
+    get     "today_national_event"          , to: "national_event#todayEvent"
+    get     "national_event/time_between"   , to: "national_event#eventsInMonth"
 
     # ================================== admin routes ============================ #
     namespace :admin , :defaults => {:format => :json} do
