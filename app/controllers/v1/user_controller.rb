@@ -108,7 +108,7 @@ class V1::UserController < ApplicationController
     user.verification_code_sent_at = Time.now
 
     if user.save
-      text = " #{ user.name } عزیز \nکد ورود مجدد شما به سامانه سیت و میت #{ user.verification_code } است \nسامانه سیت و میت "
+      text = " #{ user.first_name } #{ user.family_name } عزیز \nکد ورود مجدد شما به سامانه سیت و میت #{ user.verification_code } است \nسامانه سیت و میت "
 
       send_sms(user.phone_number , text)
 
