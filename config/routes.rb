@@ -39,7 +39,8 @@ Rails.application.routes.draw do
     # ============== national event routes ======================== #
     get     "today_national_event"          , to: "national_event#todayEvent"
     get     "national_event/time_between"   , to: "national_event#eventsInMonth"
-
+    # ============== national event routes ======================== #
+    get     ""
 
     namespace :admin , :defaults => {:format => :json} do
       # ============= user event ======================== #
