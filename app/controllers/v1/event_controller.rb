@@ -42,6 +42,15 @@ class V1::EventController < ApplicationController
   end
 
 
+  def todayEvent
+    event = NationalEvent.where(date: Date.today ).all
+    if event
+      render json: event  , status:200
+    else
+      render json: { error: "رویداد ملی ای پیدا نشد" } , status: 200
+    end
+  end
+
 
 
   # =========================== private methods
