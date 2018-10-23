@@ -49,7 +49,7 @@ class V1::UserController < ApplicationController
 
       send_sms(user.phone_number , text)
 
-      render json: { success: " کاربر با موفقیت ساخته شد " } , status: :created
+      render json: user , status: :created
     else
       render json: { error:user.errors }, status: :unprocessable_entity
     end
