@@ -108,7 +108,7 @@ class V1::UserController < ApplicationController
     user.verification_code_sent_at = Time.now
 
     if user.save
-      text = " #{ user.first_name } #{ user.family_name } عزیز \nکد ورود مجدد شما به سامانه سیت و میت #{ user.verification_code } است \nسامانه سیت و میت "
+      text = " #{ user.first_name } #{ user.family_name  } عزیز \nکد ورود مجدد شما به سامانه سیت و میت #{ user.verification_code } است \nسامانه سیت و میت "
 
       send_sms(user.phone_number , text)
 
@@ -130,7 +130,7 @@ class V1::UserController < ApplicationController
 
         code = rand(1000..9999)
 
-        text = "#{ user.name } عزیز\nکد عبور شما #{ code } است\nلطفا پس از ورود مجدد ، رمز خود را تغییر دهید\nسامانه سیت و میت"
+        text = "#{ user.fist_name + ' ' + user.family_name } عزیز\nکد عبور شما #{ code } است\nلطفا پس از ورود مجدد ، رمز خود را تغییر دهید\nسامانه سیت و میت"
         user.password_digest = BCrypt::Password.create(code)
         if user.save
           send_sms(user.phone_number , text)
@@ -206,7 +206,7 @@ class V1::UserController < ApplicationController
         code = rand(1000..9999)
         current_user.verification_code = code
         current_user.verification_code_sent_at = Time.now
-        text = " #{ user.name } عزیز \nکد ورود مجدد شما به سامانه سیت و میت #{ user.verification_code } است \nسامانه سیت و میت "
+        text = " #{ user.first_name + ' ' + user.family_name } عزیز \nکد ورود مجدد شما به سامانه سیت و میت #{ user.verification_code } است \nسامانه سیت و میت "
         send_sms(@current_user.phone_number,text)
         render json: { success: " شماره تماس تغییر یافت و کد تایید مجدد فرستاده شد " } , status: :ok
         return
