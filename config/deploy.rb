@@ -2,7 +2,7 @@
 lock "~> 3.11.0"
 
 # Change these
-server '31.184.135.21', port: your_port_num, roles: [:web, :app, :db], primary: true
+server '31.184.135.21', port: 22 , roles: [:web, :app, :db], primary: true
 
 
 
