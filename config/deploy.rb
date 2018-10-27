@@ -5,14 +5,15 @@ lock "~> 3.11.0"
 server '31.184.135.21', port: 22 , roles: [:web, :app, :db], primary: true
 
 
-
+set :deploy_to, '/home/deploy/sitomeet'
 set :repo_url, "git@github.com:amirjani/sitomeet.git"
 set :application, "SitOMeet"
 set :user,        'deploy'
 set :passenger_restart_with_touch, true
 set :puma_threads, [ 4 , 16 ]
 set :puma_workers,    0
-
+append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
