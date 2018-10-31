@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e652f6bd-6600-40d7-8c21-2869ff59db0c" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/seetomeet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/seetomeet.iml" afterDir="false" />
+>>>>>>> b38d7c7800721525c843394732dd459b1459effc
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -149,7 +153,11 @@
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="780">
+<<<<<<< HEAD
               <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+=======
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+>>>>>>> b38d7c7800721525c843394732dd459b1459effc
             </state>
           </provider>
         </entry>
@@ -489,12 +497,20 @@
       <workItem from="1538458945119" duration="10919000" />
       <workItem from="1540108445324" duration="958000" />
       <workItem from="1540273492350" duration="8237000" />
+<<<<<<< HEAD
       <workItem from="1540620797058" duration="9390000" />
+=======
+      <workItem from="1540620797058" duration="9552000" />
+>>>>>>> b38d7c7800721525c843394732dd459b1459effc
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="234528000" />
+=======
+    <option name="totallyTimeSpent" value="234690000" />
+>>>>>>> b38d7c7800721525c843394732dd459b1459effc
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -851,7 +867,11 @@
     <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="780">
+<<<<<<< HEAD
           <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+=======
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+>>>>>>> b38d7c7800721525c843394732dd459b1459effc
         </state>
       </provider>
     </entry>
