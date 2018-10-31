@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-
+set :ssh_options, {:forward_agent => true}
 set :application, "SitOMeet"
 set :repo_url,    "git@github.com:amirjani/sitomeet.git"
 set :user,        "deployer"
