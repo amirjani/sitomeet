@@ -4,7 +4,7 @@ lock "~> 3.11.0"
 
 set :application, "SitOMeet"
 set :repo_url,    "git@github.com:amirjani/sitomeet.git"
-set :user,        "deployer"
+set :user,        "deploy"
 
 server '31.184.135.21', user: "#{fetch(:user)}" , roles: %w{app db web} , primary: true
 
