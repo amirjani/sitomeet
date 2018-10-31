@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e652f6bd-6600-40d7-8c21-2869ff59db0c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/seetomeet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/seetomeet.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Capfile" beforeDir="false" afterPath="$PROJECT_DIR$/Capfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/deploy.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/deploy.rb" afterDir="false" />
     </list>
@@ -121,14 +119,14 @@
           <entry key="Capfile" value="46" />
           <entry key="Gemfile" value="32" />
           <entry key="conf" value="26" />
-          <entry key="rb" value="13602" />
+          <entry key="rb" value="13608" />
           <entry key="yml" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="26" />
-          <entry key="Ruby" value="13680" />
+          <entry key="Ruby" value="13686" />
           <entry key="YAML" value="121" />
         </counts>
       </usages-collector>
@@ -141,14 +139,18 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Capfile">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="364">
+              <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/deploy.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2236">
-              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+            <state relative-caret-position="52">
+              <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -164,7 +166,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mini_magick</find>
       <find>verification_code</find>
       <find>authori</find>
       <find>each</find>
@@ -194,6 +195,7 @@
       <find>curre</find>
       <find>pas</find>
       <find>puma_error_log</find>
+      <find>deploy</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/db/migrate</dir>
@@ -479,12 +481,12 @@
       <workItem from="1538458945119" duration="10919000" />
       <workItem from="1540108445324" duration="958000" />
       <workItem from="1540273492350" duration="8237000" />
-      <workItem from="1540620797058" duration="8466000" />
+      <workItem from="1540620797058" duration="8710000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="233604000" />
+    <option name="totallyTimeSpent" value="233848000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -839,12 +841,16 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Capfile">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/deploy.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2236">
-          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
+        <state relative-caret-position="52">
+          <caret line="7" column="14" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
