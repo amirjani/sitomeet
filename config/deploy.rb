@@ -2,17 +2,16 @@
 lock "~> 3.11.0"
 
 # Change these
-server '31.184.135.21', port: 22 , roles: [:web, :app, :db], primary: true
+server '31.184.135.21', user: "#{fetch(:user)}" , roles: %w{app db web} , primary: true
 
-
-set :deploy_to, '/home/deploy/sitomeet'
+set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
 set :repo_url, "git@github.com:amirjani/sitomeet.git"
 set :application, "SitOMeet"
-set :user,        'deploy'
+set :user,        'deployer'
 set :passenger_restart_with_touch, true
 set :puma_threads, [ 4 , 16 ]
 set :puma_workers,    0
-append :linked_files, "config/database.yml", "config/secrets.yml"
+append :linked_files, "config/database.yml", "config/secrets.yml" , "config/puma.rb"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
 set :pty,             true
 set :use_sudo,        false
@@ -28,6 +27,9 @@ set :ssh_options,     { forward_agent: true, user: fetch(:user), keys: %w(~/.ssh
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :config_example_suffix, '.example'
+set :config_files, %w{config/database.yml config/secrets.yml}
+set :puma_conf, "#{shared_path}/config/puma.rb"
 
 namespace :puma do
   desc 'Create Directories for Puma Pids and Socket'
@@ -52,7 +54,10 @@ namespace :deploy do
       end
     end
   end
-
+  before 'check:linked_files', 'config:push'
+  before 'check:linked_files', 'puma:jungle:setup'
+  before 'check:linked_files', 'puma:nginx_config'
+  after 'puma:smart_restart', 'nginx:restart'
   desc 'Initial Deploy'
   task :initial do
     on roles(:app) do
