@@ -4,21 +4,20 @@ lock "~> 3.11.0"
 # Change these
 server '31.184.135.21', user: "#{fetch(:user)}" , roles: %w{app db web} , primary: true
 
-set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+set :deploy_to, "/home/deployer/sitomeet"
 set :repo_url, "git@github.com:amirjani/sitomeet.git"
 set :application, "SitOMeet"
-set :user,        'deployer'
+set :user,        "deployer"
 set :passenger_restart_with_touch, true
 set :puma_threads, [ 4 , 16 ]
 set :puma_workers,    0
 append :linked_files, "config/database.yml", "config/secrets.yml" , "config/puma.rb"
 append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", "public/system", "public/uploads"
+set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :pty,             true
 set :use_sudo,        false
 set :stage,           :production
 set :deploy_via,      :remote_cache
-set :deploy_to,       "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
-set :puma_bind,       "unix://#{shared_path}/tmp/sockets/#{fetch(:application)}-puma.sock"
 set :puma_state,      "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid,        "#{shared_path}/tmp/pids/puma.pid"
 set :puma_access_log, "#{release_path}/log/puma.error.log"
@@ -83,7 +82,7 @@ end
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/my_app_name"
+# set :deploy_to, "/var/www/my_app_name"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh

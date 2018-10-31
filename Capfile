@@ -1,8 +1,3 @@
-set :user, 'deployer'
-# set :domain, 'jellly.com'
-
-default_run_options[:pty] = true
-
 # Load DSL and Setup Up Stages
 require 'capistrano/setup'
 require 'capistrano/deploy'
