@@ -52,6 +52,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'listen'
   gem 'capistrano', '~> 3.8', '>= 3.8.1'
   gem 'capistrano-rvm', '~> 0.1.2'
   gem 'capistrano-rails', '~> 1.2', '>= 1.2.3'
@@ -59,7 +60,7 @@ group :development do
   gem 'capistrano-nginx', '~> 1.0'
   gem 'capistrano-upload-config', '~> 0.7.0'
   gem 'sshkit-sudo', '~> 0.1.0'
- gem 'capistrano-passenger', require: false, github: 'capistrano/passenger'
+  gem 'capistrano-passenger', require: false, github: 'capistrano/passenger'
 end
 
 group :test do
