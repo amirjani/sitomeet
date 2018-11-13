@@ -24,12 +24,12 @@ default: &default
 
 development:
   <<: *default
-  database: seetomeet_final
+  database: seetomeet
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-  username: postgres
+  username: deployer
 
   # The password associated with the postgres role (username).
   password: amirjani
@@ -57,7 +57,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: seetomeet_test
+  database: seetomeet
   password: amirjani
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -81,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: seetomeet_production
-  username: seetomeet
+  database: sitomeet
+  username: deployer
   password: <%= ENV['SEETOMEET_DATABASE_PASSWORD'] %>
