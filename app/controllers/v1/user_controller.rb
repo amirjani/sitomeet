@@ -12,6 +12,12 @@ class V1::UserController < ApplicationController
     render json: { alert: exception.message }
   end
 
+  # =========== test
+  def test
+    render json: { test: "this is going well" } , status: 200
+    return 
+  end
+
   # ======================= register a user
   def register
     # check if the password and password confirmation is same
