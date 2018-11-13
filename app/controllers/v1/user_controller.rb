@@ -15,7 +15,7 @@ class V1::UserController < ApplicationController
   # =========== test
   def test
     render json: { test: "this is going well" } , status: 200
-    return 
+    return
   end
 
   # ======================= register a user
