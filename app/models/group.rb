@@ -5,7 +5,7 @@ class Group < ApplicationRecord
   validates_associated :users , :types , :events
 
   # ======================= enum
-  enum status [ :undefined , :accepted , :rejected ]
+#  enum status [ :undefined , :accepted , :rejected ]
 
   # ======================= relations
   # ======================= many to many
