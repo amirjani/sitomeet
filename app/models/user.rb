@@ -8,13 +8,20 @@ class User < ApplicationRecord
   # The available roles
   enum role: [ :admin , :normal , :deleted]
 
+
   def is?( requested_role )
     self.role == requested_role.to_s
   end
 
   # ====================== validation
+  validates :first_name , presence: true
+  validates :family_name , presence: true
+  validates :phone_number ,  presence: true, uniqueness: true
+  validates :password , presence: true
+  validates :sex , presence: true
+  validates :birthday , presence: true
+  validates :email , presence: true
   validates :password_digest , confirmation: true
-  validates :phone_number , uniqueness: true
   validates :photo , file_size: { less_than: 5.megabytes }
 
   # ======================= enum
