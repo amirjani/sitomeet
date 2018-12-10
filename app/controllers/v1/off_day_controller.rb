@@ -1,7 +1,7 @@
 class V1::OffDayController < ApplicationController
 
   before_action :authenticate_request_user
-  skip_before_action :authenticate_request_user, :only => []
+  skip_before_action :authenticate_request_user , :only => []
   load_and_authorize_resource
 
   # ============================ can can
@@ -11,7 +11,9 @@ class V1::OffDayController < ApplicationController
 
   # ============================ get all off day of a user
   def offDayUser
-    render json: { off_days: @current_user.off_days.page(params[:page]).per(params[:per]) }
+    page = params[:page] || 1 
+    per = params[:per] || 5 
+    render json: @current_user.off_days.page(params[:page]).per(params[:per])
   end
 
   # ============================ userDayOfFromDateToDate
@@ -22,24 +24,24 @@ class V1::OffDayController < ApplicationController
 
     if params[ :from ] and params[ :to ]
       day = @current_user.off_days.where( date: params[:from]..params[:to] ).order( "date" ).page(page).per(per)
-      render json: { day: day } , status: 302
+      render json: day , status: 302
     else
-      render json: { error: "پارامتر ها را کامل پاس دهید" } , status: :not_found
+      render json: { message: "پارامتر ها را کامل پاس دهید" } , status: :not_found
     end
   end
 
   # ============================ create off day
   def create
     # parameters are sent ?
-    unless params[:date]
+    unless params[:date] 
       render json: {message: " پارامتر ها به صورت کامل فرستاده نشده اند. "}, status: 402
       return
     end
 
-    # save national event
+    # save off day
     day = @current_user.off_days.build( offDayParams )
     if day.save
-      render json: { day: day } , status: :ok
+      render json: day , status: :ok
     else
       render json: { error: day.errors } , status: 400
     end
@@ -74,7 +76,7 @@ class V1::OffDayController < ApplicationController
   private
 
   def offDayParams
-    params.permit( :date , :description )
+    params.permit( :date , :is_all_day , :start , :end )
   end
 
 

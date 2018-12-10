@@ -8,7 +8,6 @@ class User < ApplicationRecord
   # The available roles
   enum role: [ :admin , :normal , :deleted]
 
-
   def is?( requested_role )
     self.role == requested_role.to_s
   end

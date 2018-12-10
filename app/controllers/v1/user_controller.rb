@@ -12,30 +12,24 @@ class V1::UserController < ApplicationController
     render json: { alert: exception.message }
   end
 
-  # =========== test
-  def test
-    render json: { test: "this is going well" } , status: 200
-    return
-  end
-
   # ======================= register a user
   def register
     # check if the password and password confirmation is same
     if params[:password] != params[:password_confirmation]
       # 409 status code is for conflict
-      render json: { error: " رمز عبور ها همخوانی ندارند " } , status: 409
+      render json: { message: " رمز عبور ها همخوانی ندارند " } , status: 409
       return
     end
 
     # check user is subscribed or not
     if User.find_by(phone_number: params[:phone_number])
-      render json: { conflict: "اطلاعات شما در حال حاضر در سامانه سیت و میت حضور دارد " } , status: 422
+      render json: { message: "اطلاعات شما در حال حاضر در سامانه سیت و میت حضور دارد " } , status: 422
       return
     end
 
     # check the fields is filled or not
     if not params[:first_name] or not params[:family_name] or not params[:phone_number] or not params[ :sex ] or not params[:password] or not params[:birthday]
-      render json: { error: " اطلاعات را به صورت کامل وارد کنید " } , status: 400
+      render json: { message: " اطلاعات را به صورت کامل وارد کنید " } , status: 400
       return
     end
 
@@ -57,7 +51,7 @@ class V1::UserController < ApplicationController
 
       render json: user , status: :created
     else
-      render json: { error:user.errors }, status: :unprocessable_entity
+      render json: { message:user.errors }, status: :unprocessable_entity
     end
   end
 
@@ -66,7 +60,7 @@ class V1::UserController < ApplicationController
 
     # code is not sent
     unless params[:code]
-      render json: { error: " اطلاعات را به صورت کامل بفرستید " } , status:400
+      render json: { message: " اطلاعات را به صورت کامل بفرستید " } , status:400
       return
     end
 
@@ -78,23 +72,23 @@ class V1::UserController < ApplicationController
       if user and not user.verified
 
         if Time.now > user.verification_code_sent_at + 10.minute
-          render json: { error: " کد ارسالی شما باطل شده است " } , status: 403
+          render json: { message: " کد ارسالی شما باطل شده است " } , status: 403
 
         else
           user.verified = true
 
           if user.save
-            render json: { success: " کاربر تایید شد " } , status: 200
+            render json: { message: " کاربر تایید شد " } , status: 200
 
           else
-            render json: { error: user.errors.full_messages } , status: 400
+            render json: { message: user.errors.full_messages } , status: 400
           end
         end
 
       elsif user&.verified
-        render json: { error: " شما در حال حاضر تایید شده هستید " } , status: 200
+        render json: { message: " شما در حال حاضر تایید شده هستید " } , status: 200
       else
-        render json: { error: " کد را اشتباه وارد کردید " } , status: 400
+        render json: { message: " کد را اشتباه وارد کردید " } , status: 400
       end
     end
   end
@@ -106,7 +100,7 @@ class V1::UserController < ApplicationController
     code = rand(1000..9999)
 
     unless user
-      render json: { error: " کاربر با شماره تلفن مورد نظر وجود ندارد " } , status: 404
+      render json: { message: " کاربر با شماره تلفن مورد نظر وجود ندارد " } , status: 404
       return
     end
 
@@ -118,10 +112,10 @@ class V1::UserController < ApplicationController
 
       send_sms(user.phone_number , text)
 
-      render json: { success: " کد فرستاده شد " } , status: 200
+      render json: { message: " کد فرستاده شد " } , status: 200
 
     else
-      render json: { error: user.errors.full_messages } , status: :unprocessable_entity
+      render json: { message: user.errors.full_messages } , status: :unprocessable_entity
     end
 
   end
@@ -140,15 +134,15 @@ class V1::UserController < ApplicationController
         user.password_digest = BCrypt::Password.create(code)
         if user.save
           send_sms(user.phone_number , text)
-          render json: { success: " پیام ارسال شد و کد عبور شما تغییر یافت " } , status: 200
+          render json: { message: " پیام ارسال شد و کد عبور شما تغییر یافت " } , status: 200
         else
-          render json: { error: " پیام ارسال نشد ، به واحد پشتیبانی خبر دهید. " } , status: 410
+          render json: { message: " پیام ارسال نشد ، به واحد پشتیبانی خبر دهید. " } , status: 410
         end
       else
-        render json: { error: user.errors } , status: 403
+        render json: { message: user.errors } , status: 403
       end
     else
-      render json: { error: "کاربر پیدا نشد" } , status: 404
+      render json: { message: "کاربر پیدا نشد" } , status: 404
     end
   end
 
@@ -157,7 +151,7 @@ class V1::UserController < ApplicationController
     if @current_user
       render json: @current_user , status: 200
     else
-      render json: { error: " توکن شما یافت نشد! " } , status: 200
+      render json: { message: " توکن شما یافت نشد! " } , status: 200
     end
   end
 
@@ -174,12 +168,12 @@ class V1::UserController < ApplicationController
 
 
     unless user.authenticate(params[:oldPassword])
-      render json: { error: " رمز عبور گذشته به درستی وارد نشده است " } , status: 400
+      render json: { message: " رمز عبور گذشته به درستی وارد نشده است " } , status: 400
       return
     end
 
     unless params[:newPassword] == params[:newPasswordConfirmation]
-      render json: { error: " رمز عبور ها همخوانی ندارند " } , status: 400
+      render json: { message: " رمز عبور ها همخوانی ندارند " } , status: 400
     end
 
     user.password = params[:newPassword]
@@ -188,9 +182,9 @@ class V1::UserController < ApplicationController
     end
 
     if user.save
-      render json: { success: " رمز عبور با موفقیت تغییر یافت " } , status: 400
+      render json: { message: " رمز عبور با موفقیت تغییر یافت " } , status: 400
     else
-      render json: { error: user.errors } , status: :unprocessable_entity
+      render json: { message: user.errors } , status: :unprocessable_entity
     end
   end
 
@@ -199,7 +193,7 @@ class V1::UserController < ApplicationController
     if @current_user.update(profilePicture)
       render json: @current_user , status: 200
     else
-      render json: { error: "مشکلی پیش آمده است" } , status: 404
+      render json: { message: @current_user.errors } , status: 404
     end
   end
 
@@ -214,17 +208,17 @@ class V1::UserController < ApplicationController
         current_user.verification_code_sent_at = Time.now
         text = " #{ user.first_name + ' ' + user.family_name } عزیز \nکد ورود مجدد شما به سامانه سیت و میت #{ user.verification_code } است \nسامانه سیت و میت "
         send_sms(@current_user.phone_number,text)
-        render json: { success: " شماره تماس تغییر یافت و کد تایید مجدد فرستاده شد " } , status: :ok
+        render json: { message: " شماره تماس تغییر یافت و کد تایید مجدد فرستاده شد " } , status: :ok
         return
       end
-    render json: { success: " به روز راستی شد " } , status: :ok
+    render json: { message: " به روز راستی شد " } , status: :ok
     end
   end
 
   # ======================= delete user
   def deleteUser
     @current_user.update(status: false ,role: :deleted ,phone_number: "#{@current_user.phone_number}*deleted*#{rand(11.99)}")
-    render json: { success: "با موفقیت حذف شد" }, status: 200
+    render json: { message: "با موفقیت حذف شد" }, status: 200
   end
 
 
