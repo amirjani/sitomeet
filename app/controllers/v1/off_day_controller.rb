@@ -52,12 +52,12 @@ class V1::OffDayController < ApplicationController
     day = @current_user.off_days.where( id: params[:id] ).last
     if day
       if day.update( offDayParams )
-        render json: { day: day } , status: 200
+        render json: { message: day } , status: 200
       else
-        render json: { error: day.errors } , status: 400
+        render json: { message: day.errors } , status: 400
       end
     else
-      render json: { error: " روز مورد نظر یافت نشد. " } , status: 404
+      render json: { message: " روز مورد نظر یافت نشد. " } , status: 404
     end
   end
 
@@ -65,9 +65,9 @@ class V1::OffDayController < ApplicationController
   def delete
     day = OffDay.where( id: params[:id] ).last
     if day.delete
-      render json: { successfull: " با موفقیت حذف شد " } , status: 200
+      render json: { message: " با موفقیت حذف شد " } , status: 200
     else
-      render json: { error: day.errors }
+      render json: { message: day.errors }
     end
   end
 
