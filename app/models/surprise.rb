@@ -1,6 +1,6 @@
 class Surprise < ApplicationRecord
   # validation
-  validates_presence_of :fake_title , :fake_description
+  validates_presence_of :fake_title , :fake_description , :theme
 
   # =================== relations
 
