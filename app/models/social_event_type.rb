@@ -1,0 +1,2 @@
+class SocialEventType < ApplicationRecord
+end

@@ -8,6 +8,7 @@ class Invite < ApplicationRecord
   has_many :users, :dependent => :destroy
 
   belongs_to :party
+  belongs_to :meeting
 
 
 end

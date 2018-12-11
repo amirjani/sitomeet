@@ -1,0 +1,2 @@
+class SocialEventCategory < ApplicationRecord
+end
