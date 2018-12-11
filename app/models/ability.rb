@@ -12,6 +12,7 @@ class Ability
 
       elsif user.is? :normal
         can :read , :all
+        can :manage , OffDay
         can :manage , Event
         can :manage , User
         can :manage , Social

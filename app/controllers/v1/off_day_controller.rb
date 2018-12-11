@@ -39,7 +39,7 @@ class V1::OffDayController < ApplicationController
     end
 
     # save off day
-    day = @current_user.off_day.build( offDayParams )
+    day = @current_user.off_days.build( offDayParams )
     if day.save
       render json: day , status: :ok
     else
