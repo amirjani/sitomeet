@@ -16,7 +16,7 @@ class User < ApplicationRecord
   validates :first_name , presence: true
   validates :family_name , presence: true
   validates :phone_number ,  presence: true, uniqueness: true
-  validates :password , presence: true
+  # validates :password , presence: true
   validates :sex , presence: true
   validates :birthday , presence: true
   validates :email , presence: true
