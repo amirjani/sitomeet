@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_141020) do
   end
 
   create_table "social_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "users_id", null: false
     t.string "title", null: false
     t.string "description"
     t.uuid "social_event_types_id"
@@ -132,6 +133,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_141020) do
     t.datetime "updated_at", null: false
     t.index ["social_event_categories_id"], name: "index_social_events_on_social_event_categories_id"
     t.index ["social_event_types_id"], name: "index_social_events_on_social_event_types_id"
+    t.index ["users_id"], name: "index_social_events_on_users_id"
   end
 
   create_table "socials", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -199,6 +201,7 @@ ActiveRecord::Schema.define(version: 2018_12_11_141020) do
   add_foreign_key "social_event_types", "social_event_categories", column: "social_event_categories_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "social_events", "social_event_categories", column: "social_event_categories_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "social_events", "social_event_types", column: "social_event_types_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "social_events", "users", column: "users_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "socials", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "surprise_users", "surprises", on_update: :cascade, on_delete: :cascade
   add_foreign_key "surprise_users", "users", on_update: :cascade, on_delete: :cascade

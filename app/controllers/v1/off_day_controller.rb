@@ -13,7 +13,7 @@ class V1::OffDayController < ApplicationController
   def offDayUser
     page = params[:page] || 1 
     per = params[:per] || 5 
-    render json: @current_user.off_days.page(params[:page]).per(params[:per])
+    render json: @current_user.off_days.page(page).per(per)
   end
 
   # ============================ userDayOfFromDateToDate
@@ -33,13 +33,13 @@ class V1::OffDayController < ApplicationController
   # ============================ create off day
   def create
     # parameters are sent ?
-    unless params[:date] 
+    unless params[:date]
       render json: {message: " پارامتر ها به صورت کامل فرستاده نشده اند. "}, status: 402
       return
     end
 
     # save off day
-    day = @current_user.off_days.build( offDayParams )
+    day = @current_user.off_day.build( offDayParams )
     if day.save
       render json: day , status: :ok
     else
