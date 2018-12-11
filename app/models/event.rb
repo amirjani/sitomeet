@@ -1,11 +1,22 @@
 class Event < ApplicationRecord
+
   # =========================== validations
   validates_presence_of :title , :start_time , :end_time , :is_private
 
+
+  # =========================== enums
+  enum type: [ :personal , :surprise , :party , :meeting , :social]
+
+  enum color: [ :red , :blue , :purple , :cyan , :orange ]
+
+  enum repeat_time: [ :no , :every_day , :every_week , :every_month , :every_three_month , :every_six_month , :every_year ]
+
+  enum notification_time: [ :no , :five_min_before , :fifteen_min_before , :thirty_min_before , :one_hour_before , :two_hour_before , :one_day_before , :three_day_before]
+
   # =========================== relations
   # ============== one to one
-  has_one :surprise                , :dependent => :destroy
-  has_one :invite_friend          , :dependent => :destroy
+  has_one :party, :dependent => :destroy
+  has_one :surprise, :dependent => :destroy
   # ============== one to many
   has_many :share_events                , :dependent => :destroy
   # ============== many to many

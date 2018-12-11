@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_02_062810) do
+ActiveRecord::Schema.define(version: 2018_12_11_085837) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -54,15 +54,23 @@ ActiveRecord::Schema.define(version: 2018_10_02_062810) do
   end
 
   create_table "events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.boolean "is_private", default: true
+    t.integer "type", null: false
+    t.integer "color", default: 0
+    t.date "date", null: false
     t.string "title", null: false
     t.string "description"
+    t.string "location_name", null: false
+    t.string "location_lat", null: false
+    t.string "location_long", null: false
+    t.string "address", null: false
     t.datetime "start_time", null: false
     t.datetime "end_time", null: false
-    t.datetime "notification_time"
-    t.integer "when_to_repeat"
+    t.integer "repeat_time", null: false
+    t.integer "notification_time", null: false
+    t.datetime "end_of_repeat", null: false
+    t.boolean "is_private", default: true
     t.boolean "is_verified"
-    t.boolean "is_with", default: false
+    t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -70,8 +78,6 @@ ActiveRecord::Schema.define(version: 2018_10_02_062810) do
   create_table "group_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "group_id", null: false
     t.uuid "type_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.index ["group_id"], name: "index_group_types_on_group_id"
     t.index ["type_id"], name: "index_group_types_on_type_id"
   end
@@ -114,6 +120,16 @@ ActiveRecord::Schema.define(version: 2018_10_02_062810) do
     t.index ["invite_friends_id"], name: "index_invitees_on_invite_friends_id"
   end
 
+  create_table "invites", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "parties_id"
+    t.uuid "users_id", null: false
+    t.integer "number_of_along"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["parties_id"], name: "index_invites_on_parties_id"
+    t.index ["users_id"], name: "index_invites_on_users_id"
+  end
+
   create_table "national_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "user_id", null: false
     t.date "date"
@@ -139,6 +155,14 @@ ActiveRecord::Schema.define(version: 2018_10_02_062810) do
     t.string "title", null: false
     t.text "description", null: false
     t.index ["user_id"], name: "index_our_laws_on_user_id"
+  end
+
+  create_table "parties", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "events_id", null: false
+    t.string "theme", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["events_id"], name: "index_parties_on_events_id"
   end
 
   create_table "share_event_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -240,9 +264,12 @@ ActiveRecord::Schema.define(version: 2018_10_02_062810) do
   add_foreign_key "group_users", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "invite_friends", "events", column: "events_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "invitees", "invite_friends", column: "invite_friends_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "invites", "parties", column: "parties_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "invites", "users", column: "users_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "national_events", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "off_days", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "our_laws", "users", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "parties", "events", column: "events_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "share_event_types", "share_events", on_update: :cascade, on_delete: :cascade
   add_foreign_key "share_event_types", "types", on_update: :cascade, on_delete: :cascade
   add_foreign_key "socials", "users", on_update: :cascade, on_delete: :cascade
