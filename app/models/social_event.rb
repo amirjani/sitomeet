@@ -4,5 +4,6 @@ class SocialEvent < ApplicationRecord
 
   has_one :social_event_category , dependent: :destroy
   has_one :social_event_type , dependent: :destroy
+  belongs_to :user , dependent: :destroy
 
 end

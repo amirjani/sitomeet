@@ -9,9 +9,9 @@ class Event < ApplicationRecord
 
   enum color: [ :red , :blue , :purple , :cyan , :orange ]
 
-  enum repeat_time: [ :no , :every_day , :every_week , :every_month , :every_three_month , :every_six_month , :every_year ]
+  enum repeat_time: [ :no_repeat , :every_day , :every_week , :every_month , :every_three_month , :every_six_month , :every_year ]
 
-  enum notification_time: [ :no , :five_min_before , :fifteen_min_before , :thirty_min_before , :one_hour_before , :two_hour_before , :one_day_before , :three_day_before]
+  enum notification_time: [ :no_notification , :five_min_before , :fifteen_min_before , :thirty_min_before , :one_hour_before , :two_hour_before , :one_day_before , :three_day_before]
 
   # =========================== relations
   # ============== one to one
