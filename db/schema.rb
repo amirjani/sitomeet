@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_11_141734) do
+ActiveRecord::Schema.define(version: 2018_12_11_141020) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -112,20 +112,26 @@ ActiveRecord::Schema.define(version: 2018_12_11_141734) do
   end
 
   create_table "social_event_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "social_event_categories_id"
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["social_event_categories_id"], name: "index_social_event_types_on_social_event_categories_id"
   end
 
   create_table "social_events", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title", null: false
     t.string "description"
+    t.uuid "social_event_types_id"
+    t.uuid "social_event_categories_id"
     t.integer "price"
     t.boolean "is_available", default: true
     t.integer "capacity"
     t.boolean "is_accepted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["social_event_categories_id"], name: "index_social_events_on_social_event_categories_id"
+    t.index ["social_event_types_id"], name: "index_social_events_on_social_event_types_id"
   end
 
   create_table "socials", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -190,6 +196,9 @@ ActiveRecord::Schema.define(version: 2018_12_11_141734) do
   add_foreign_key "off_days", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "our_laws", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "parties", "events", column: "events_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "social_event_types", "social_event_categories", column: "social_event_categories_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "social_events", "social_event_categories", column: "social_event_categories_id", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "social_events", "social_event_types", column: "social_event_types_id", on_update: :cascade, on_delete: :cascade
   add_foreign_key "socials", "users", on_update: :cascade, on_delete: :cascade
   add_foreign_key "surprise_users", "surprises", on_update: :cascade, on_delete: :cascade
   add_foreign_key "surprise_users", "users", on_update: :cascade, on_delete: :cascade
