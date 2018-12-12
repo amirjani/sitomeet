@@ -19,7 +19,7 @@ class V1::AuthenticationController < ApplicationController
     if command.success?
 
       unless user.verified
-        render json: {message: " پروفایل کاربری هنوز فعال نشده است. "}, status: 401
+        render json: user , status: 401
         return
       end
 
