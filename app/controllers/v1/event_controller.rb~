@@ -61,7 +61,7 @@ class V1::EventController < ApplicationController
  
  # ========================== personal evenet delete
  def personalEventDelete
- if params[ :id ]
+ if params[:id]
    personalEvent = @current_user.event.where( id: params[ :id ]).first
    if personalEvent
     if personalEvent.delete
@@ -76,20 +76,6 @@ class V1::EventController < ApplicationController
    render json: { message: "پارامتر ها را به صورت کامل ارسال کنید" } , status: 422
   end
  end 
- 
- # ========================== get only one event
- def getOnePersonalEvent
-  if params[ :id ]
-   render json: @current_user.event.where( id: params[ :id ]).first , status: 200
-  else 
-   render json: { message: "پارامتر ها را به صورت کامل ارسال کنید" } , status: 422 
-  end 
- end
- 
- # ======================== get today event
- def getTodayPersonalEvent
-   render json: @current_user.event.where( date: Time.now.strftime('%F') ).first , status: 200 
- end
 
 
  # private parts for initial what we want 

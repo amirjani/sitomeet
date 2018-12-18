@@ -19,7 +19,9 @@ class V1::AuthenticationController < ApplicationController
     if command.success?
 
       unless user.verified
-        render json: user , status: 401
+        render :json => {
+          :data => user.as_json(:only => [:verified])
+        } , status: 401 
         return
       end
 

@@ -14,7 +14,8 @@ class V1::EventController < ApplicationController
    personalEvent.is_private = true
    personalEvent.is_verified = true
    if params[:start_time] > params[:end_time]
-    render json: {messsage: "تاریخ شروع بزرگتر از تاریخ پایان است"}
+    render json: {messsage: "تاریخ شروع بزرگتر از تاریخ پایان است"} , status:422
+    return
    else
     if personalEvent.save
      render json: personalEvent , status: 200

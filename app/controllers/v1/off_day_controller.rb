@@ -43,7 +43,7 @@ class V1::OffDayController < ApplicationController
     if day.save
       render json: day , status: :ok
     else
-      render json: { error: day.errors } , status: 400
+      render json: { message: day.errors } , status: 400
     end
   end
 

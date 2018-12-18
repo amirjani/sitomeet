@@ -1,0 +1,39 @@
+class V1::PartyController < ApplicationController
+
+ before_action :authenticate_request_user
+ load_and_authorize_resource
+ # ============================ can can
+ rescue_from CanCan::AccessDenied do | exception |
+   render json: { alert: exception.message }
+ end
+
+ # =========================== create party event
+ def createParty
+  event = @current_user.event.build(eventParams)
+  event.type = "party"
+  event.is_private = true 
+   event.is_verified = true 
+   if params[ :start_time ] > params[ :end_time ]
+    render json: { message: "ساعت شروع بزرگتر از ساعت پایان است" } , status: 422 
+   end
+
+   party = party.new(partyParams)
+   
+    
+  
+   render json: event.erros , status: 400 
+  end
+ end
+
+ #============================ private 
+ private 
+
+ def eventParams
+  params.permit( :date , :title , :description , :location_lat , :location_long , :address , :start_time , :end_time , :repeat_time , :notification_time , :end_of_repeat , :is_private , :is_verified , :photo )
+ end 
+
+ def partyParams
+  params.permit( :theme )
+ end
+
+end

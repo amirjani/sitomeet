@@ -45,21 +45,20 @@ class V1::UserController < ApplicationController
     user.verification_code_sent_at = Time.now
 
     if user.save
+      render json: useruser_color_event
+return 
       for i in 0..4
-       userColorEvent = UserColorEvent.new
-       userColorEvent.user_id = user.id
-       userColorEvent.event_color = i 
-       userColorEvent.event_type = i 
-       userColorEvent.save
+       @ourUser.user_color_event.create(event_type: i , event_color: i)
       end
-             
+      render json: user.user_color_event 
+      return
       text =  " سلام #{ user.first_name + ' ' + user.family_name } عزیز \n  به سامانه ی سیت و میت خوش آمدید \n کد عبور شما #{ code } است  \n سامانه ی سیت و می"
 
-      send_sms( user.phone_number , text)
+      send_sms(user.phone_number , text)
 
       render json: user , status: :created
     else
-      render json: { message: user.errors }, status: :unprocessable_entity
+      render json: { message:user.errors }, status: :unprocessable_entity
     end
   end
 
@@ -242,12 +241,12 @@ class V1::UserController < ApplicationController
 
   # ======================= update parameters
   def updateParams
-    params.permit( :first_name , :family_name , :phone_number , :sex , :birthday , :bio , :username , :email , :location , :is_private , :photo)
+    params.permit(:first_name , :family_name , :phone_number , :sex , :birthday , :bio , :username , :email , :location , :is_private , :photo)
   end
 
   # ======================= upload profile
   def profilePicture
-    params.permit( :photo)
+    params.permit(:photo)
   end
 
   # ======================= send sms
@@ -257,4 +256,3 @@ class V1::UserController < ApplicationController
     RestClient.get(url)
   end
 end
-

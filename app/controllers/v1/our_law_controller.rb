@@ -1,6 +1,6 @@
 class V1::OurLawController < ApplicationController
 
-  load_and_authorize_resource
+  # load_and_authorize_resource 
 
   # ============================ can can
   rescue_from CanCan::AccessDenied do | exception |
