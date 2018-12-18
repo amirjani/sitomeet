@@ -1,15 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  is_muted: false
-  image: MyString
-  is_private: false
-  is_verified: false
+  name: MyString
   description: MyText
+  is_private: false
 
 two:
-  is_muted: false
-  image: MyString
-  is_private: false
-  is_verified: false
+  name: MyString
   description: MyText
+  is_private: false

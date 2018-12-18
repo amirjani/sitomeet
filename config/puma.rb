@@ -13,7 +13,20 @@ port        ENV.fetch("PORT") { 3000 }
 
 # Specifies the `environment` that Puma will run in.
 #
-environment ENV.fetch("RAILS_ENV") { "development" }
+
+environment ENV.fetch("RAILS_ENV") { "production" }
+
+pidfile "/home/deployer/sitomeet/tmp/pids/puma.pid"
+state_path "/home/deployer/sitomeet/tmp/pids/puma.state"
+stdout_redirect '/home/deployer/sitomeet/log/puma_access.log', '/home/deployer/sitomeet/log/puma_error.log', true
+
+daemonize true
+
+threads 0,16
+
+
+
+bind 'unix:///home/deployer/sitomeet/tmp/sockets/puma.sock'
 
 # Specifies the number of `workers` to boot in clustered mode.
 # Workers are forked webserver processes. If using threads and workers together

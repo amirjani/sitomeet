@@ -46,7 +46,7 @@ users =
 personalEvent = 
  Event.create(
   [
-   user_id: User.first().id ,
+   user_id: SecureRandom.uuid ,
    event_type: "personal",  
    date: "2018-12-15T", 
    description: "amirhossein Jani is here and coding", 
@@ -64,31 +64,3 @@ personalEvent =
    photo: nil 
   ]
  )
-
-colorEventUser = 
- UserColorEvent.create(
-  [
-   user_id: User.first().id, 
-   event_type: 0, 
-   event_color: 0 
-  ]),UserColorEvent.create(
-  [
-   user_id: User.first().id,
-   event_type: 1,
-   event_color: 1
-  ]),UserColorEvent.create(
-  [
-   user_id: User.first().id,
-   event_type: 2,
-   event_color: 2
-  ]),UserColorEvent.create(
-  [
-   user_id: User.first().id,
-   event_type: 3,
-   event_color: 3
-  ]),UserColorEvent.create(
-  [
-   user_id: User.first().id,
-   event_type: 4,
-   event_color: 4
-  ])

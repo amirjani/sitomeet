@@ -17,7 +17,7 @@ Rails.application.routes.draw do
     post    "personal_event/create"         , to: "event#personalEventCreate"
     get     "personal_event/all"            , to: "event#getAllPersonalEvent"
     get     "personal_event/month"          , to: "event#getMonthPersonalEvent"
-    # ============== party event routes ============================= # 
+    # ============== party event ==================================== #
     post    "party_event/create"            , to: "party#createParty"
     # ============== social media =================================== #
     get     "user/social_media"             , to: "socials#getSocials"

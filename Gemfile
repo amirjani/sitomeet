@@ -10,6 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-base64'
 gem 'file_validators'
 gem 'rack-cors'
 # Use SCSS for stylesheets

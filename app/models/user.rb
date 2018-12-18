@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # ======================== password
   has_secure_password
   # ======================== model has an image and uploader
-  mount_uploader :photo , UserImageUploader
+  mount_base64_uploader :photo , UserImageUploader
 
   # ======================== User::Roles
   # The available roles
@@ -27,23 +27,21 @@ class User < ApplicationRecord
   enum sex: [ :male , :female ]
 
   # ======================= relations
-
+ # =========================== one to one 
+  has_many :user_color_event , :dependent => :destroy 
+  has_many :event_color , :dependent => :destroy
   # ============== one to many
   has_many :national_event , :dependent => :destroy
   has_many :our_laws , :dependent => :destroy
   has_many :socials , :dependent => :destroy
   has_many :off_days , :dependent => :destroy
   has_many :social_events , :dependent => :destroy
+  has_one :group
+  has_many :event , :dependent => :destroy
 
   # ============== many to many
-
-  # user and types
-  has_many :types , :through => "user_types" , :foreign_key => "type_id"
-  has_many :user_types
-
-  # user and events
-  has_many :event , :through => "event_users" , :foreign_key => "events_id"
-  has_many :event_users
+  has_many :party , :through => "party_user" , :foreign_key => "party_id"
+  has_many :party_user
 
   # surprise and user
   has_many :surprises , :through => "surprise_users" , :foreign_key => "surprise_id"

@@ -1,13 +1,13 @@
 class Event < ApplicationRecord
-
+  
+  mount_base64_uploader :photo , PersonalEventUploaderUploader
   # =========================== validations
-  validates_presence_of :title , :start_time , :end_time , :is_private
-
+  validates_presence_of :event_type , :title , :date , :location_lat , :location_long , :address , :repeat_time , :notification_time , :end_of_repeat ,  :start_time , :end_time , :is_private , :is_private , :is_verified  
 
   # =========================== enums
-  enum type: [ :personal , :surprise , :party , :meeting , :social]
+  enum event_type: [ :personal , :surprise , :party , :meeting , :social]
 
-  enum color: [ :red , :blue , :purple , :cyan , :orange ]
+  # enum color: [ :red , :blue , :purple , :cyan , :orange ]
 
   enum repeat_time: [ :no_repeat , :every_day , :every_week , :every_month , :every_three_month , :every_six_month , :every_year ]
 
@@ -20,14 +20,12 @@ class Event < ApplicationRecord
   has_one :meeting , :dependent => :destroy
   has_one :event_color , :dependent => :destroy
   # ============== one to many
+  belongs_to :user , :dependent => :destroy
   has_many :share_events                , :dependent => :destroy
   # ============== many to many
   # event and groups
   has_many :groups , :through => "event_groups" , :foreign_key => "group_id"
-  has_many :event_groups
-  # event and user
-  has_many :user , :through => "event_users" , :foreign_key => "users_id"
-  has_many :event_users
+  has_many :event_group
   # event and types
   has_many :types , :through => "event_types" , :foreign_key => "type_id"
   has_many :event_types

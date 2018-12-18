@@ -49,13 +49,15 @@ class V1::PartyController < ApplicationController
      return
     end
   else
-   render json: party.is_invite
-   return
-   render json: event.errors , status: 400
-   return
+   if party.is_invite == false
+      render :json => {
+         :event => event.as_json(:except => [:created_at , :updated_at]) ,
+         :party => party.as_json(:except => [:created_at , :updated_at , :event_id])
+      } , status: 200
+      return
   end
  end
-end
+
  #============================ private
  private
 
