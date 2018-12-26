@@ -1,14 +1,24 @@
 class V1::GroupsController < ApplicationController
 
-  before_action :authenticate_user
+  before_action :authenticate_request_user
 
   def createGroup
     validate_parameters
     group = Group.new(group_params)
-    if @current_user.groups.build(group).save
-	render json: group, status: 201
-    else
-        render json: group.errors, status: 422
+    @current_user.groups << group
+    render json: group, status: 201
+  end
+
+
+  def getGroups
+    render json: @current_user.groups
+  end
+
+
+  def updateGroup
+    group = @current_user.groups.find(params[:id])
+    if group.update(group_params)
+      render json: group
     end
   end
 
@@ -21,6 +31,6 @@ class V1::GroupsController < ApplicationController
   end
 
   def validate_parameters
-    ""
+    true
   end
 end
