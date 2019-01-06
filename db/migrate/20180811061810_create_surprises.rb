@@ -7,6 +7,10 @@ class CreateSurprises < ActiveRecord::Migration[5.2]
       t.string :fake_description
       t.string :theme
 
+      t.integer :is_invite , null: false , default: true
+      t.integer :number_of_along , null: true
+      t.integer :user_to_surprise_id , type: :uuid , null: false
+
       t.timestamps
     end
   end

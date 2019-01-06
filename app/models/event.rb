@@ -18,7 +18,7 @@ class Event < ApplicationRecord
   has_one :party, :dependent => :destroy
   has_one :surprise, :dependent => :destroy
   has_one :meeting , :dependent => :destroy
-  has_one :event_color , :dependent => :destroy
+  has_one :user_color_event
   # ============== one to many
   belongs_to :user , :dependent => :destroy
   has_many :share_events                , :dependent => :destroy

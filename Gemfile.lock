@@ -240,6 +240,7 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    rmagick (2.16.0)
     rubyzip (1.2.1)
     selenium-webdriver (3.14.0)
       childprocess (~> 0.5)
@@ -311,6 +312,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.2.0)
   rest-client
+  rmagick
   selenium-webdriver
   simple_command
   tzinfo-data

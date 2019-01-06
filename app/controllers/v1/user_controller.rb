@@ -2,7 +2,7 @@ class V1::UserController < ApplicationController
 
   # ====================== validations
   before_action :authenticate_request_user
-  skip_before_action :authenticate_request_user, :except => [ :profile, :updatePassword , :updateProfile , :deleteUser , :uploadProfilePicture]
+  skip_before_action :authenticate_request_user, :except => [ :profile, :updatePassword , :updateProfile , :deleteUser , :uploadProfilePicture, :insertContactNumbers, :getContacts]
 
   load_and_authorize_resource
   skip_authorize_resource :only => [ :register , :verification , :deleteUser  ]
@@ -45,6 +45,8 @@ class V1::UserController < ApplicationController
     user.verification_code_sent_at = Time.now
 
     if user.save
+      nc_authorization_key = register_to_nc
+      user.update(nc_authorization_key: nc_authorization_key)
       for i in 0..4
        userColorEvent = UserColorEvent.new
        userColorEvent.user_id = user.id
@@ -231,6 +233,29 @@ class V1::UserController < ApplicationController
   end
 
 
+  # ======================= insert contact numbers
+  def insertContactNumbers
+    @current_user.update(contacts: params[:contacts])
+    render json: {message: "ok"}
+  end  
+
+  # ======= get contact
+  def getContacts
+    result = []
+    @current_user.contacts.each do |cn|
+      user = User.where("phone_number = ?", cn).last
+      if user
+	object = {id: user.id,phone_number: cn,photo: user.photo}
+	result.push(object)
+      end
+    end
+    render json: result
+  end
+
+
+  def getNotificationCenterInfo
+    ""#render json: {authorization_key: @current_user.nc_authorization_key}
+  end
 
   # ======================= private for this controller
   private
@@ -255,6 +280,15 @@ class V1::UserController < ApplicationController
     url = "http://www.0098sms.com/sendsmslink.aspx?FROM=30005883333335&TO=#{to}&TEXT=#{text}&USERNAME=xsms6874&PASSWORD=33947786&DOMAIN=0098"
     url = URI.encode(url)
     RestClient.get(url)
+  end
+
+  def register_to_nc
+    authorization_key = ""
+    response = RestClient.post 'http://31.184.135.239/api/v1/player', {api_key: "#{nd_android_api_key}"}
+    if response.code == 200
+      authorization_key = JSON.parse(response.body)["authorization_key"]
+    end
+    authorization_key
   end
 end
 

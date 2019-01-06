@@ -34,4 +34,19 @@ class ApplicationController < ActionController::API
     end
   end
 
+  def nc_android_api_key
+    "a6c4fb0396ffc447e82f20e6f899b5"
+  end
+
+  def nc_ios_api_key
+    ""
+  end
+
+  def nc_web_api_key
+    ""
+  end
+
+  helper_method :nc_android_api_key
+  helper_method :nc_ios_api_key
+  helper_method :nc_web_api_key
 end

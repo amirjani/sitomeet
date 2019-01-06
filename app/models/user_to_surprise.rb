@@ -1,0 +1,2 @@
+class UserToSurprise < ApplicationRecord
+end

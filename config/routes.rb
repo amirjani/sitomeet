@@ -12,13 +12,38 @@ Rails.application.routes.draw do
     # ============== user's profile ================================= #
     get     "user/profile"                  , to: "user#profile"
     put     "user/update_profile"           , to: "user#updateProfile"
-    put     "user/upload_profile_picture"   , to: "user#uploadProfilePicture"    
+    put     "user/upload_profile_picture"   , to: "user#uploadProfilePicture"
+    # ============== social event routes ======================  #    
     # ============== personal evenet routes =================== # 
     post    "personal_event/create"         , to: "event#personalEventCreate"
     get     "personal_event/all"            , to: "event#getAllPersonalEvent"
     get     "personal_event/month"          , to: "event#getMonthPersonalEvent"
+    put     "personal_event/update/:id"     , to: "event#eventChange"
+    delete  "personal_event/delete/:id"     , to: "event#personalEventDelete"
+    get     "personal_event"                , to: "event#getTodayPersonalEvent"
+    get     "personal_event/:id"            , to: "event#getOnePersonalEvent"
     # ============== party event routes ============================= # 
     post    "party_event/create"            , to: "party#createParty"
+    get     "party_event/all"               , to: "party#getAllPartyEvents"
+    get     "party_event"                   , to: "party#getSpecifiedTimePartyEvent"
+    put     "party_event/update/:id"        , to: "party#updateParty"
+    match   "party_event/delete/:id"        , to: "party#deleteEvent", via: "delete"
+    get     "party_event/today"             , to: "party#todayParty"
+    get     "party_event/:id"               , to: "party#getOneParty"
+    # ============== surprise event ================================= # 
+    post    "surprise/create" 		    , to: "surprise#create"
+    get     "surprise/all"                  , to: "surprise#getAll"
+    get     "surprise/between"              , to: "surprise#betweenTime"
+    get     "surprise/today"                , to: "surprise#getToday"
+    get     "surprise/show/:id"             , to: "surprise#show"
+    delete  "surprise/delete/:id"           , to: "surprise#delete" 
+    # ============== meeting event ================================== # 
+    post    "meeting_event"                 , to: "meeting#create"
+    get     "meeting_event/all"             , to: "meeting#getAll"
+    get     "meeting_event/between"         , to: "meeting#betweenTime"
+    get     "meeting_event/today"           , to: "meeting#today"
+    get     "meeting_event/show/:id"        , to: "meeting#show" 
+    delete  "meeting_event/delete/:id"      , to: "meeting#delete" 
     # ============== social media =================================== #
     get     "user/social_media"             , to: "socials#getSocials"
     post    "user/social_media/create"      , to: "socials#create"
@@ -46,7 +71,18 @@ Rails.application.routes.draw do
     get     "national_event/time_between"   , to: "national_event#eventsInMonth"
     # ============== national event routes ======================== #
     get     "today_event"                   , to: "event#todayEvent"
-    
+    # ============== group routes =================================#
+    get "groups", to: "groups#getGroups"
+    post "group", to: "groups#createGroup"
+    put "group/:id", to: "groups#updateGroup"
+    get "group/:id", to: "groups#getGroup"
+
+    # ============== contact ===================== #
+    post "contacts", to: "user#insertContactNumbers"
+    get "contacts", to: "user#getContacts"
+    # ============= lookup ======================= #
+    get "lookup", to: "lookup#getLookup"
+    get "shake", to: "shake#make"    
 
 
 
@@ -78,12 +114,24 @@ Rails.application.routes.draw do
       delete  "user/:user_id/off_day/:id/delete"  , to: "off_day#delete"
       put     "user/:user_id/off_day/:id/update"  , to: "off_day#update"
 
-      # ============== oir law ===================== #
+      # ============== our law ===================== #
       get     "our_law"                           , to: "our_law#show"
       post    "our_law"                           , to: "our_law#store"
       put     "our_law"                           , to: "our_law#update"
       delete  "our_law"                           , to: "our_law#delete"
 
+      # ============== social event category ================ # 
+      post     "social_event_category"             , to: "social_event_category#create"
+      get      "social_event_category/all"         , to: "social_event_category#getAll"
+      put      "social_event_category/:id"         , to: "social_event_category#update"
+      delete   "social_event_category/:id"         , to: "social_event_category#delete"
+
+      # ============== social event category type ========================# 
+      post     "social_event_type"		          , to: "social_event_type#create"
+      get      "social_event_type"                        , to: "social_event_type#categoryType"
+      delete   "social_event_type/:social_event_type_id"  , to: "social_event_type#delete"
+      put      "social_event_type/:social_event_type_id"  , to: "social_event_type#update"
+            
     end
   end
 

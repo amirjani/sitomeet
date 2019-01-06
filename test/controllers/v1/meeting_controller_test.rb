@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GroupPhotoTest < ActiveSupport::TestCase
+class V1::MeetingControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

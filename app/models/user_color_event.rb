@@ -6,6 +6,6 @@ class UserColorEvent < ApplicationRecord
  enum event_type: [ :personal , :surprise , :party , :meeting , :social ]
  enum event_color: [ :red , :blue , :purple , :cyan , :orange ]
 
- belongs_to :user , :dependent => :destroy
+ belongs_to :user
 
 end

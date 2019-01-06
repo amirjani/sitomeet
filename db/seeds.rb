@@ -92,3 +92,51 @@ colorEventUser =
    event_type: 4,
    event_color: 4
   ])
+
+national_event = NationalEvent.create(
+  [
+    user_id: User.first().id,
+    date: "2018-12-29T" , 
+    title: "vafat e emam" , 
+    description: "emam rahmat dar in tarikh fot karde" , 
+    is_day_off: true
+  ]),NationalEvent.create(
+  [
+    user_id: User.first().id,
+    date: "2018-12-30T" ,
+    title: "vafat e emam1" ,
+    description: "emam1 rahmat dar in tarikh fot karde" ,
+    is_day_off: false
+  ]),NationalEvent.create(
+  [
+    user_id: User.first().id,
+    date: "2019-01-03T" ,
+    title: "vafat e emam3" ,
+    description: "emam3 rahmat dar in tarikh fot karde" ,
+    is_day_off: true
+  ]),NationalEvent.create(
+  [
+    user_id: User.first().id,
+    date: "2019-01-07T" ,
+    title: "vafat e emam4" ,
+    description: "emam4 rahmat dar in tarikh fot karde" ,
+    is_day_off: true
+  ])
+
+socialEventCategory = 
+  SocialEventCategory.create(
+  [
+    title: "cat 1"
+  ]),SocialEventCategory.create( 
+  [
+    title: "cat 2"
+  ]),SocialEventCategory.create( 
+  [
+    title: "cat 3"
+  ]),SocialEventCategory.create( 
+  [
+    title: "cat 4"
+  ])
+
+
+

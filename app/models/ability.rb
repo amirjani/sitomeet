@@ -16,7 +16,9 @@ class Ability
         can :manage , Event
         can :manage , User
         can :manage , Social
-
+        can :manage , Meeting
+        can :manage , Party
+        can :manage , NationalEvent
       else
         can :create , User
         can :read , :all

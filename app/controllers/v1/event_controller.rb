@@ -92,7 +92,7 @@ class V1::EventController < ApplicationController
  
  # ======================== get today event
  def getTodayPersonalEvent
-   render json: @current_user.event.where( date: Time.now.strftime('%F') ).first , status: 200 
+   render json: @current_user.event.where( date: Time.now.strftime('%F') ).all , status: 200 
  end
 
 
